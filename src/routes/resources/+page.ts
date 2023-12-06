@@ -22,7 +22,9 @@ export const load = (async () => {
 			},
 			{
 				name: 'Test',
-				description: 'Description for a test resource'
+				description: 'Description for a test resource',
+				src: storyboard,
+				poster: storyboard_poster
 			}
 		] as resourceObject[]
 	};
