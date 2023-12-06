@@ -9,7 +9,7 @@
 	});
 </script>
 
-<label class="swap swap-rotate">
+<label class="swap swap-rotate pr-4">
 	<!-- this hidden checkbox controls the state -->
 	<input
 		type="checkbox"
