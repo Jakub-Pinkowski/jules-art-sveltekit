@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-    import { fade } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 
 	export let data: PageData;
 
@@ -14,9 +14,9 @@
 	};
 </script>
 
-<div class="mt-8 w-3/5 fle flex-col mx-auto">
+<div class="mt-8 flex flex-col md:flex-row">
 	{#each data.resources as { name, description, src, poster }}
-		<div class="card card-compact w-full bg-base-100 shadow-xl my-8">
+		<div class="card card-compact w-full bg-base-100 shadow-xl m-8 max-w-lg">
 			<figure>
 				<img src={poster} alt={name} />
 			</figure>
