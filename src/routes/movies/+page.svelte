@@ -4,13 +4,9 @@
 	export let data: PageData;
 </script>
 
-<h1>Movies</h1>
-
-{#each data.movies as { name, year, rating }}
-	<div>
-		<p>Name: {name}</p>
-		<p>Year: {year}</p>
-		<p>Rating: {rating}</p>
-		<hr />
+{#each data.movies as { name, src, poster }}
+	<div class="flex flex-col items-center justify-center w-full h-auto">
+		<video class="w-4/5" controls {src} {poster} />
+		<h3 class="text-2xl font-medium mt-4 mb-8">{name}</h3>
 	</div>
 {/each}
