@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import ThemeToggler from './ThemeToggler.svelte';
 </script>
 

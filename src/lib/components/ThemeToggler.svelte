@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import { themeChange } from 'theme-change';
 
@@ -11,7 +11,13 @@
 
 <label class="swap swap-rotate">
 	<!-- this hidden checkbox controls the state -->
-	<input type="checkbox" class="theme-controller" value="synthwave" />
+	<input
+		type="checkbox"
+		class="theme-controller"
+		value="synthwave"
+		data-toggle-theme="dark,light"
+		data-act-class="ACTIVECLASS"
+	/>
 
 	<!-- sun icon -->
 	<svg class="swap-on fill-current w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
