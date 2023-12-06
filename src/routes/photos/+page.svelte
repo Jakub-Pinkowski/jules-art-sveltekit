@@ -2,21 +2,6 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-
-    // Modal
-    let modalOpen = false;
-    let modalImage = '';
-
-    function openModal(event) {
-        modalOpen = true;
-        modalImage = event.target.src;
-    }
-
-    function closeModal() {
-        modalOpen = false;
-    }
-
-    
 </script>
 
 <div class="mt-8">
@@ -35,10 +20,4 @@
 	</div>
 
 	<!-- Modal -->
-	<div class="photo-modal" >
-		<div class="modal-background" on:click="closeModal"></div>
-		<div class="modal-content" on:click="closeModal">
-			<img src="modalImage" alt="Full Size Image" />
-		</div>
-	</div>
 </div>
