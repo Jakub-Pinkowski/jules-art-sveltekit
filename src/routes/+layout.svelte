@@ -1,7 +1,7 @@
 <script lang="ts">
-	import '../app.css'
-	import Footer from '$lib/components/Footer.svelte'
-	import DesktopNavbar from '$lib/components/DesktopNavbar.svelte'
+	import '../app.css';
+	import Footer from '$lib/components/Footer.svelte';
+	import DesktopNavbar from '$lib/components/DesktopNavbar.svelte';
 </script>
 
 <div class="flex flex-col min-h-screen">
