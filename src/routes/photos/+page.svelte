@@ -5,6 +5,18 @@
 	export let data: PageData;
 
 	let showModal = false;
+
+	let selectedPhotoSrc: string = '';
+
+	const openModal = (src: string) => {
+		selectedPhotoSrc = src;
+		showModal = true;
+	};
+
+	const closeModal = () => {
+		selectedPhotoSrc = '';
+		showModal = false;
+	};
 </script>
 
 <div class="mt-8">
@@ -16,7 +28,15 @@
 				<div
 					class="w-full overflow-hidden cursor-pointer transition-transform hover:opacity-90 ease-out duration-500"
 				>
-					<img class="object-cover w-full h-full shadow-2xl rounded-lg" {src} alt="artictic" />
+					<!-- svelte-ignore missing-declaration -->
+					<!-- svelte-ignore a11y-click-events-have-key-events -->
+					<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+					<img
+						class="object-cover w-full h-full shadow-2xl rounded-lg"
+						{src}
+						alt="artictic"
+						on:click={() => openModal(src)}
+					/>
 				</div>
 			</div>
 		{/each}
@@ -25,12 +45,12 @@
 	<!-- Modal -->
 	<button on:click={() => (showModal = true)}> show modal </button>
 
-	<Modal bind:showModal>
-		<h2 slot="header">
-			modal
-			<small><em>adjective</em> mod·al \ˈmō-dəl\</small>
-		</h2>
-
-		<p>Main slot here</p>
-	</Modal>
+	<!-- Modal -->
+	{#if showModal}
+		<Modal bind:showModal onClose={closeModal}>
+			{#if selectedPhotoSrc}
+				<img src={selectedPhotoSrc} alt="Selected" />
+			{/if}
+		</Modal>
+	{/if}
 </div>
