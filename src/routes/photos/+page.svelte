@@ -50,7 +50,7 @@
 	{#if showModal}
 		<Modal bind:showModal onClose={closeModal}>
 			{#if selectedPhotoSrc}
-				<img class="object-contain" src={selectedPhotoSrc} alt="Selected" />
+				<img class="object-contain max-h-[50rem]" src={selectedPhotoSrc} alt="Selected" />
 			{/if}
 		</Modal>
 	{/if}

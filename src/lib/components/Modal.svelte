@@ -20,7 +20,7 @@
 >
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div on:click={() => closeModal()}>
-        <div class="w-auto max-w-4xl overflow-hidden">
+        <div class="w-auto max-w-4xl  overflow-hidden">
 			<slot />
 		</div>
 	</div>
