@@ -1,7 +1,7 @@
 <script lang="ts">
 	import promo from '$lib/assets/movies/Promo.mov';
 
-	const videoElement: HTMLVideoElement | null = null;
+	let videoElement: HTMLVideoElement | null = null;
 
 	const toggleMute = () => {
 		if (videoElement) {
@@ -15,8 +15,15 @@
 <div>
 	<div>
 		<!-- svelte-ignore a11y-media-has-caption -->
-		<video class="absolute inset-0 w-full h-full object-cover" autoplay loop muted src={promo}
-		></video>
+		<video
+			class="absolute inset-0 w-full h-full object-cover"
+			autoplay
+			loop
+			muted
+			src={promo}
+			bind:this={videoElement}
+		>
+		</video>
 		<span class="absolute bottom-0 left-0 text-white">SCROLL DOWN</span>
 		<label class="swap absolute bottom-0 right-0">
 			<!-- this hidden checkbox controls the state -->
