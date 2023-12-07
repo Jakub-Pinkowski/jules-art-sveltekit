@@ -1,13 +1,15 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import Modal from '$lib/components/Modal.svelte';
+	import { fade } from 'svelte/transition';
 
 	export let data: PageData;
 
 	// Modal
-	let showModal = false;
-
+	let showModal: boolean = false;
+	let dialog: HTMLDialogElement;
 	let selectedPhotoSrc: string = '';
+
+	$: if (dialog && showModal) dialog.showModal();
 
 	const openModal = (src: string) => {
 		selectedPhotoSrc = src;
@@ -44,14 +46,23 @@
 	</div>
 
 	<!-- Modal -->
-	<button on:click={() => (showModal = true)}> show modal </button>
-
-	<!-- Modal -->
 	{#if showModal}
-		<Modal bind:showModal onClose={closeModal}>
-			{#if selectedPhotoSrc}
-				<img class="object-contain max-h-[50rem]" src={selectedPhotoSrc} alt="Selected" />
-			{/if}
-		</Modal>
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+		<dialog
+			transition:fade
+			class="max-w-5xl mx-auto flex items-center justify-center"
+			bind:this={dialog}
+			on:close={() => closeModal()}
+			on:click|self={() => closeModal()}
+		>
+			<!-- svelte-ignore a11y-no-static-element-interactions -->
+			<!-- svelte-ignore a11y-click-events-have-key-events -->
+			<div on:click={() => closeModal()}>
+				<div class="w-auto max-w-4xl overflow-hidden">
+					<img class="object-contain max-h-[50rem]" src={selectedPhotoSrc} alt="Selected" />
+				</div>
+			</div>
+		</dialog>
 	{/if}
 </div>
