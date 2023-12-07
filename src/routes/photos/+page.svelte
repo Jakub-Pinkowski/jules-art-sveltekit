@@ -52,7 +52,7 @@
 		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 		<dialog
 			transition:fade
-			class="max-w-5xl mx-auto flex items-center justify-center"
+			class="max-w-5xl mx-auto flex items-center justify-center outline-none rounded-lg"
 			bind:this={dialog}
 			on:close={() => closeModal()}
 			on:click|self={() => closeModal()}
