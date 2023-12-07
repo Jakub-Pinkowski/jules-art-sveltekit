@@ -12,11 +12,16 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
-<dialog bind:this={dialog} on:close={() => onClose()} on:click|self={() => closeModal()}>
+<dialog
+	class="max-w-5xl mx-auto flex items-center justify-center"
+	bind:this={dialog}
+	on:close={() => onClose()}
+	on:click|self={() => closeModal()}
+>
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div on:click={() => closeModal()}>
-		<slot />
-		<!-- svelte-ignore a11y-autofocus -->
-		<button autofocus on:click={() => closeModal()}>close modal</button>
+        <div class="w-auto max-w-4xl overflow-hidden">
+			<slot />
+		</div>
 	</div>
 </dialog>

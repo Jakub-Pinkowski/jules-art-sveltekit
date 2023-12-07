@@ -4,6 +4,7 @@
 
 	export let data: PageData;
 
+	// Modal
 	let showModal = false;
 
 	let selectedPhotoSrc: string = '';
@@ -49,7 +50,7 @@
 	{#if showModal}
 		<Modal bind:showModal onClose={closeModal}>
 			{#if selectedPhotoSrc}
-				<img src={selectedPhotoSrc} alt="Selected" />
+				<img class="object-contain" src={selectedPhotoSrc} alt="Selected" />
 			{/if}
 		</Modal>
 	{/if}
