@@ -6,7 +6,7 @@
 
 	// Modal
 	let showModal: boolean = false;
-	let dialog: HTMLDialogElement;
+	let dialog: HTMLDialogElement | null = null;
 	let selectedPhotoSrc: string = '';
 
 	$: if (dialog && showModal) dialog.showModal();
@@ -19,6 +19,7 @@
 	const closeModal = () => {
 		selectedPhotoSrc = '';
 		showModal = false;
+		dialog = null;
 	};
 </script>
 
