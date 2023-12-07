@@ -1,7 +1,10 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import Modal from '$lib/components/Modal.svelte';
 
 	export let data: PageData;
+
+	let showModal = false;
 </script>
 
 <div class="mt-8">
@@ -20,5 +23,14 @@
 	</div>
 
 	<!-- Modal -->
-    
+	<button on:click={() => (showModal = true)}> show modal </button>
+
+	<Modal bind:showModal>
+		<h2 slot="header">
+			modal
+			<small><em>adjective</em> mod·al \ˈmō-dəl\</small>
+		</h2>
+
+		<p>Main slot here</p>
+	</Modal>
 </div>
