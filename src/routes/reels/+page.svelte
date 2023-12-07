@@ -3,5 +3,3 @@
 
 	export let data: PageData;
 </script>
-
-<h1>Reels</h1>
