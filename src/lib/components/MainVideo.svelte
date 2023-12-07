@@ -1,7 +1,9 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import promo from '$lib/assets/movies/Promo.mov';
 
 	let videoElement: HTMLVideoElement | null = null;
+	let isBouncing = true;
 
 	const toggleMute = () => {
 		if (videoElement) {
@@ -10,6 +12,12 @@
 		console.log('toggleMute');
 		console.log(videoElement);
 	};
+
+	onMount(() => {
+		setTimeout(() => {
+			isBouncing = false;
+		}, 3500);
+	});
 </script>
 
 <div>
@@ -22,10 +30,9 @@
 			muted
 			src={promo}
 			bind:this={videoElement}
-		>
-		</video>
+		></video>
 		<span class="absolute bottom-0 left-0 text-white">SCROLL DOWN</span>
-		<label class="swap absolute bottom-0 right-0">
+		<label class={`swap absolute bottom-0 right-0 ${isBouncing ? 'animate-bounce' : ''}`}>
 			<!-- this hidden checkbox controls the state -->
 			<input type="checkbox" on:change={toggleMute} />
 
