@@ -1,1 +1,7 @@
-<h1>Home Page</h1>
+<script lang="ts">
+	import MainVideo from '$lib/components/MainVideo.svelte';
+</script>
+
+<div>
+	<MainVideo />
+</div>
