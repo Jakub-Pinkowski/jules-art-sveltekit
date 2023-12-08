@@ -10,26 +10,17 @@
 </script>
 
 <div class="flex">
-	<div class="w-1/2">
-		<h1>Jules-Art</h1>
-		<h2>Videography & Photography</h2>
-		<h3>About me</h3>
-		<p>
-			{about_description}
-		</p>
-		<h3>Films, Style & Aesthetics</h3>
-		<p>
-			{style_description}
-		</p>
-		<p>
-			{style_description_2}
-		</p>
+	<div class="w-1/2 p-8 text-justify">
+		<h1 class="text-3xl font-bold my-8">Jules-Art</h1>
+		<h2 class="text-2xl font-semibold my-8">Videography & Photography</h2>
+		<h3 class="text-lg font-semibold my-4">About me</h3>
+		<p class="text-base">{about_description}</p>
+		<h3 class="text-lg font-semibold my-8">Films, Style & Aesthetics</h3>
+		<p class="text-base">{style_description}</p>
+		<p class="text-base">{style_description_2}</p>
 	</div>
-	<div class="flex justify-center items-center w-1/2 h-full relative">
-		<!-- AvatarSvg is moved after the img tag -->
+	<div class="flex justify-center items-center w-1/2 h-full relative mt-8">
 		<AvatarSvg />
-
-		<!-- Image is set to position relative, making z-index work -->
 		<img
 			class="rounded-full w-3/4 h-3/4 mx-10 object-cover relative z-1"
 			src={about}
