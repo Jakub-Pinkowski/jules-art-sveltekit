@@ -8,7 +8,7 @@
 <div class="flex flex-col min-h-screen">
 	<header>
 		<DesktopNavbar />
-        <MobileNavbar />
+		<MobileNavbar />
 	</header>
 	<main class="flex-1 mx-6 text-gray-900">
 		<slot />

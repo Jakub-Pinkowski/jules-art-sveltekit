@@ -2,7 +2,7 @@
 	import ThemeToggler from './ThemeToggler.svelte';
 </script>
 
-<nav class="navbar bg-base-100">
+<nav class="navbar bg-base-100 max-md:hidden">
 	<div class="flex-1">
 		<a class="btn btn-ghost text-2xl" href="/">Jules-Art</a>
 	</div>
