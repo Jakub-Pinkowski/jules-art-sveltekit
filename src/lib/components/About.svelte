@@ -11,13 +11,13 @@
 
 <div class="flex">
 	<div class="w-1/2 p-8 text-justify">
-		<h1 class="text-3xl font-bold my-8">Jules-Art</h1>
-		<h2 class="text-2xl font-semibold my-8">Videography & Photography</h2>
-		<h3 class="text-lg font-semibold my-4">About me</h3>
+		<h1 class="text-4xl font-semibold my-8">Jules-Art</h1>
+		<h2 class="text-2xl font-medium my-8">Videography & Photography</h2>
+		<h3 class="text-lg font-medium my-4">About me</h3>
 		<p class="text-base">{about_description}</p>
-		<h3 class="text-lg font-semibold my-8">Films, Style & Aesthetics</h3>
-		<p class="text-base">{style_description}</p>
-		<p class="text-base">{style_description_2}</p>
+		<h3 class="text-lg font-medium my-8">Films, Style & Aesthetics</h3>
+		<p class="text-base my-4">{style_description}</p>
+		<p class="text-base my-4">{style_description_2}</p>
 	</div>
 	<div class="flex justify-center items-center rounded-full w-1/2 mx-10 z-1">
 		<img class="rounded-full object-cover z-1 w-[30rem] h-auto" src={about} alt="author" />
