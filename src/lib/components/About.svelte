@@ -4,20 +4,27 @@
 	const style_description =
 		"My favourite style is “elegant-classy” or “romantic-nostalgic.” If I were to describe it in words - it's something about the set up in beautiful location, golden light, dreamy or dramatic mood, red lipstick, little black dress.";
 	const style_description_2 = '...but I am always up for experiments!';
+
+	import view_about from '$lib/assets/images/view_about.png';
 </script>
 
-<div>
-	<h1>Jules-Art</h1>
-	<h2>Videography & Photography</h2>
-	<h3>About me</h3>
-	<p>
-		{about_description}
-	</p>
-	<h3>Films, Style & Aesthetics</h3>
-	<p>
-		{style_description}
-	</p>
-	<p>
-		{style_description_2}
-	</p>
+<div class="flex">
+	<div class="w-1/2">
+		<h1>Jules-Art</h1>
+		<h2>Videography & Photography</h2>
+		<h3>About me</h3>
+		<p>
+			{about_description}
+		</p>
+		<h3>Films, Style & Aesthetics</h3>
+		<p>
+			{style_description}
+		</p>
+		<p>
+			{style_description_2}
+		</p>
+	</div>
+	<div class="w-1/2">
+		<img src={view_about} alt="author" />
+	</div>
 </div>
