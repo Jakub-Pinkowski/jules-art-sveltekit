@@ -11,12 +11,14 @@ export default {
 				light: {
 					...require('daisyui/src/theming/themes')['light'],
 					primary: '#c8b6ff',
-					secondary: '#bbd0ff'
+					secondary: '#bbd0ff',
+                    dark: '#3c096c'
 				},
 				dark: {
 					...require('daisyui/src/theming/themes')['dark'],
 					primary: '#c8b6ff',
-					secondary: '#bbd0ff'
+					secondary: '#bbd0ff',
+                    dark: '#3c096c'
 				}
 			}
 		]
