@@ -63,7 +63,4 @@
 	</div>
 
 	<div class="h-screen"></div>
-	<div>
-		<p>Some paragraph</p>
-	</div>
 </div>
