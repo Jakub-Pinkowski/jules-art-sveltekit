@@ -1,17 +1,12 @@
 <script>
-
-
-
+	let isActive = false;
 
 	const toggle = () => {
-		const hambElement = document.querySelector('.hamb');
-		if (hambElement) {
-			hambElement.classList.toggle('active');
-		}
+		isActive = !isActive;
 	};
 </script>
 
-<button class="hamb" aria-label="Open Menu" on:click={toggle}>
+<button class={`hamb ${isActive ? 'active' : ''}`} aria-label="Open Menu" on:click={toggle}>
 	<span class="sr-only">Open Menu</span><svg class="ham" viewBox="0 0 100 100"
 		><path
 			class="line top"
