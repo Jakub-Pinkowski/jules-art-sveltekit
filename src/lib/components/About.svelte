@@ -19,12 +19,8 @@
 		<p class="text-base">{style_description}</p>
 		<p class="text-base">{style_description_2}</p>
 	</div>
-	<div class="flex justify-center items-center w-1/2 h-full relative mt-8">
-		<AvatarSvg />
-		<img
-			class="rounded-full w-3/4 h-3/4 mx-10 object-cover relative z-1"
-			src={about}
-			alt="author"
-		/>
+	<div class="flex justify-center items-center rounded-full w-1/2 mx-10 z-1">
+		<img class="rounded-full object-cover z-1 w-[30rem] h-auto" src={about} alt="author" />
+			<AvatarSvg />
 	</div>
 </div>
