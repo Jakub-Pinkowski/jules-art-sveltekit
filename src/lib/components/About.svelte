@@ -5,7 +5,8 @@
 		"My favourite style is “elegant-classy” or “romantic-nostalgic.” If I were to describe it in words - it's something about the set up in beautiful location, golden light, dreamy or dramatic mood, red lipstick, little black dress.";
 	const style_description_2 = '...but I am always up for experiments!';
 
-	import view_about from '$lib/assets/images/view_about.png';
+	import about from '$lib/assets/images/about.jpg';
+	import AvatarSvg from './UI/AvatarSVG.svelte';
 </script>
 
 <div class="flex">
@@ -24,7 +25,15 @@
 			{style_description_2}
 		</p>
 	</div>
-	<div class="w-1/2">
-		<img src={view_about} alt="author" />
+	<div class="flex justify-center items-center w-1/2 h-full relative">
+		<!-- AvatarSvg is moved after the img tag -->
+		<AvatarSvg />
+
+		<!-- Image is set to position relative, making z-index work -->
+		<img
+			class="rounded-full w-3/4 h-3/4 mx-10 object-cover relative z-1"
+			src={about}
+			alt="author"
+		/>
 	</div>
 </div>
