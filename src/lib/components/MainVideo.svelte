@@ -31,8 +31,8 @@
 			src={promo}
 			bind:this={videoElement}
 		></video>
-		<span class="absolute bottom-0 left-0 text-white">SCROLL DOWN</span>
-		<label class={`swap text-white absolute bottom-0 right-0 ${isBouncing ? 'animate-bounce' : ''}`}>
+		<span class="absolute bottom-0 left-0 text-white font-semibold text-s m-2">SCROLL DOWN</span>
+		<label class={`swap text-white absolute bottom-0 right-0 m-2 ${isBouncing ? 'animate-bounce' : ''}`}>
 			<!-- this hidden checkbox controls the state -->
 			<input type="checkbox" on:change={toggleMute} />
 
