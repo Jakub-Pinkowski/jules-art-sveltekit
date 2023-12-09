@@ -19,7 +19,7 @@
 
 <!-- TODO: Make it more coincice -->
 {#if open}
-	<div class="text-center text-semibold text-2xl p-4 pt-0 tracking-wider">
+	<div class="text-center text-semibold text-2xl p-4 pt-0 mt-12 tracking-wider">
 		<a
 			href={links[0].path}
 			class="block cursor-pointer mx-auto my-4 hover:underline"
