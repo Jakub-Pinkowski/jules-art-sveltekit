@@ -14,16 +14,15 @@
 		<h1 class="text-5xl font-semibold my-8">Jules-Art</h1>
 		<h2 class="text-2xl my-8">Videography & Photography</h2>
 		<h3 class="text-xl my-4">About me</h3>
-		<div
-			class="flex relative text-center items-center justify-center h-full my-12 md:w-1/2 md:my-24"
-		>
-			<img src={about} alt="author" class="w-2/3 h-2/3 rounded-full object-cover" />
-			<AvatarSvg />
-		</div>
 		<p class="text-lg">{about_description}</p>
 		<h3 class="text-xl my-8">Films, Style & Aesthetics</h3>
 		<p class="text-lg my-4">{style_description}</p>
 		<p class="text-lg my-4">{style_description_2}</p>
+	</div>
+	<!-- TODO: On mobile this should be below "About me" -->
+	<div class="flex relative text-center items-center justify-center h-full my-12 md:w-1/2 md:my-24">
+		<img src={about} alt="author" class="w-2/3 h-2/3 rounded-full object-cover" />
+		<AvatarSvg />
 	</div>
 </div>
 
