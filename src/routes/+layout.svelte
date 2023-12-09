@@ -7,6 +7,8 @@
 
 	import { Hamburger } from 'svelte-hamburgers';
 
+    const primary = '#c8b6ff'
+
 	let open: any;
 </script>
 
@@ -14,8 +16,10 @@
 	<header>
 		<DesktopNavbar />
 		<MobileNavbar />
-		<Hamburger bind:open --color="red" />
-        <MobileNavbar2 bind:open />
+		<Hamburger bind:open --color={primary}
+        
+        />
+		<MobileNavbar2 bind:open />
 	</header>
 	<main class="flex-1 mx-6 text-gray-900">
 		<slot />
