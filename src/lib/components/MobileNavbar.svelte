@@ -6,6 +6,7 @@
 	};
 </script>
 
+<!-- TODO: Finish the navbar -->
 <nav class="md:hidden">
 	<button class={`hamb ${isActive ? 'active' : ''}`} aria-label="Open Menu" on:click={toggle}>
 		<span class="sr-only">Open Menu</span><svg class="ham" viewBox="0 0 100 100"
