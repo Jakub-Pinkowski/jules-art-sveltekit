@@ -25,10 +25,8 @@
 </script>
 
 <div class="max-md:hidden">
-	<nav class="absolute z-20 right-8 top-8 text-white">
-		<div>
-			<Hamburger bind:open --color={primary} />
-		</div>
+	<nav class="absolute z-10 right-8 top-8 text-white">
+		<Hamburger bind:open --color={primary} />
 		<MobileNavbar bind:open />
 	</nav>
 	<div>
