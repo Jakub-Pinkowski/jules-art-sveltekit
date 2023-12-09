@@ -7,7 +7,7 @@
 
 	import { Hamburger } from 'svelte-hamburgers';
 
-    const primary = '#c8b6ff'
+    const primary = '#3c096c'
 
 	let open: any;
 </script>
