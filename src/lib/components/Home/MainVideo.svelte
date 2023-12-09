@@ -13,8 +13,6 @@
 		if (videoElement) {
 			videoElement.muted = !videoElement.muted;
 		}
-		console.log('toggleMute');
-		console.log(videoElement);
 	};
 
 	onMount(() => {
