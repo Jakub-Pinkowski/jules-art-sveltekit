@@ -2,15 +2,24 @@
 	import { onMount } from 'svelte';
 	import { themeChange } from 'theme-change';
 
-	// NOTE: the element that is using one of the theme attributes must be in the DOM on mount
 	onMount(() => {
+		const theme = localStorage.getItem('theme');
+		const checkbox = document.querySelector('.theme-controller') as HTMLInputElement;
+
+		if (theme) {
+			document.documentElement.setAttribute('data-theme', theme);
+		} else {
+			document.documentElement.setAttribute('data-theme', 'light');
+		}
+
+		if (theme === 'dark') {
+			checkbox.checked = true;
+		}
 		themeChange(false);
-		// 👆 false parameter is required for svelte
 	});
 </script>
 
 <label class="swap swap-rotate p-4">
-	<!-- this hidden checkbox controls the state -->
 	<input
 		type="checkbox"
 		class="theme-controller"
