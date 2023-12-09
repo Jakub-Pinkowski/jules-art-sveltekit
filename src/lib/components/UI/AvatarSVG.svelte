@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<div class="overlay-svg absolute z-10 w-[28rem] h-[30rem]">
+<div class="overlay-svg absolute z-10 md:w-[28rem] md:h-[30rem]">
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		width="501"
