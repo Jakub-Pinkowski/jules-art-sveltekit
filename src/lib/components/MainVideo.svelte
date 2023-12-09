@@ -7,7 +7,7 @@
 	const primary = '#c8b6ff';
 	let videoElement: HTMLVideoElement | null = null;
 	let isBouncing = true;
-	let open: boolean;
+	let open: boolean = false;
 
 	const toggleMute = () => {
 		if (videoElement) {
@@ -25,7 +25,7 @@
 </script>
 
 <nav class="absolute z-20 right-8 top-8 text-white">
-	<div class=" ">
+	<div>
 		<Hamburger bind:open --color={primary} />
 	</div>
 	<MobileNavbar bind:open />
