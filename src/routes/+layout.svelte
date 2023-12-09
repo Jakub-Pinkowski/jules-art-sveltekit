@@ -12,12 +12,10 @@
 <div class="flex flex-col min-h-screen">
 	<header>
 		<DesktopNavbar />
-		<nav class="md:hidden">
-			<div class="absolute right-8 top-8">
-				<Hamburger bind:open --color={primary} />
-			</div>
-			<MobileNavbar bind:open />
+		<nav class="md:hidden absolute right-8 top-8">
+			<Hamburger bind:open --color={primary} />
 		</nav>
+		<MobileNavbar bind:open />
 	</header>
 	<main class="flex-1 mx-6 text-gray-900">
 		<slot />
