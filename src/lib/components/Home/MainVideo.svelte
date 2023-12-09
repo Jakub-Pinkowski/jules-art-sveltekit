@@ -4,7 +4,6 @@
 	import { Hamburger } from 'svelte-hamburgers';
 	import MobileNavbar from '$lib/components/MobileNavbar.svelte';
 
-	const primary = '#c8b6ff';
 	let videoElement: HTMLVideoElement | null = null;
 	let isBouncing = true;
 	let open: boolean = false;
@@ -25,7 +24,7 @@
 <div class="max-md:hidden">
 	<nav class="absolute z-10 right-8 top-8 text-white">
 		<div class="absolute right-0 tp-0">
-			<Hamburger bind:open --color='white' />
+			<Hamburger bind:open --color="white" />
 		</div>
 		<MobileNavbar bind:open />
 	</nav>
