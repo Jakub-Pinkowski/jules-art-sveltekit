@@ -3,18 +3,6 @@
 	import { themeChange } from 'theme-change';
 
 	onMount(() => {
-		const theme = localStorage.getItem('theme');
-		const checkbox = document.querySelector('.theme-controller') as HTMLInputElement;
-
-		if (theme) {
-			document.documentElement.setAttribute('data-theme', theme);
-		} else {
-			document.documentElement.setAttribute('data-theme', 'light');
-		}
-
-		if (theme === 'dark') {
-			checkbox.checked = true;
-		}
 		themeChange(false);
 	});
 </script>
