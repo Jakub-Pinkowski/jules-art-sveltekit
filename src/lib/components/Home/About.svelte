@@ -6,8 +6,6 @@
 	const style_description_2 = '...but I am always up for experiments!';
 
 	import about from '$lib/assets/images/about.jpg';
-	import frame_light from '$lib/assets/images/frame_light.png';
-	import frame_dark from '$lib/assets/images/frame_dark.png';
 	import AvatarSvg from '$lib/components/UI/AvatarSVG.svelte';
 </script>
 
@@ -21,7 +19,7 @@
 		<p class="text-base my-4">{style_description}</p>
 		<p class="text-base my-4">{style_description_2}</p>
 	</div>
-	<div class="photo relative text-center items-center justify-center w-1/2 h-full flex">
+	<div class="flex relative text-center items-center justify-center h-full my-4 md:w-1/2 md:my-24">
 		<img src={about} alt="author" class="w-2/3 h-2/3 rounded-full object-cover" />
 		<AvatarSvg />
 	</div>
