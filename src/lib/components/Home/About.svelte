@@ -9,8 +9,8 @@
 	import AvatarSvg from '$lib/components/UI/AvatarSVG.svelte';
 </script>
 
-<div class="flex">
-	<div class="w-1/2 p-4 text-justify">
+<div class="flex flex-col md:flex-row">
+	<div class="md:w-1/2 p-4 text-justify">
 		<h1 class="text-5xl font-semibold my-8">Jules-Art</h1>
 		<h2 class="text-3xl my-8">Videography & Photography</h2>
 		<h3 class="text-2xl my-4">About me</h3>
@@ -19,7 +19,7 @@
 		<p class="text-base my-4">{style_description}</p>
 		<p class="text-base my-4">{style_description_2}</p>
 	</div>
-	<div class="flex justify-center items-center rounded-full w-1/2 mx-10 z-1">
+	<div class="flex justify-center items-center rounded-full md:w-1/2 mx-10 z-1">
 		<img class="rounded-full object-cover z-1 w-[30rem] h-auto" src={about} alt="author" />
 		<AvatarSvg />
 	</div>
