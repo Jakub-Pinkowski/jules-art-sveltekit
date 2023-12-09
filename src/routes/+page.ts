@@ -9,6 +9,7 @@ interface portfolioObject {
 	title: string;
 	description: string;
 	photo: string;
+    src: string;
 }
 
 export const load = (async () => {
@@ -17,22 +18,26 @@ export const load = (async () => {
 			{
 				title: 'Photos',
 				description: 'Explore a collection of my photos',
-                photo: portfolio_photos
+                photo: portfolio_photos,
+                src: '/photos'
 			},
 			{
 				title: 'Movies',
 				description: 'Explore a collection of my movies',
-                photo: portfolio_movies
+                photo: portfolio_movies,
+                src: '/movies'
 			},
             {
                 title: 'Reels',
                 description: 'Explore a collection of my reels',
-                photo: portfolio_reels
+                photo: portfolio_reels,
+                src: '/reels'
             },
             {
                 title: 'Resources',
                 description: 'Explore a collection of downloadable resources',
-                photo: portfolio_resources
+                photo: portfolio_resources,
+                src: '/resources'
             }
 		] as portfolioObject[]
 	};
