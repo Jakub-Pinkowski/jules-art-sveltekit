@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { fly, scale } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
+	import ThemeToggler from './ThemeToggler.svelte';
 
 	export let open: boolean;
 
@@ -20,6 +21,7 @@
 <!-- TODO: Make it more coincice -->
 {#if open}
 	<div class="text-center text-semibold text-2xl p-4 pt-0 mt-12 tracking-wider">
+        <ThemeToggler />
 		<a
 			href={links[0].path}
 			class="block cursor-pointer mx-auto my-4 hover:underline"
