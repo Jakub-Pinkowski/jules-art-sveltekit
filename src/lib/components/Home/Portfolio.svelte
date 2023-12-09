@@ -21,7 +21,6 @@
 					/></a
 				>
 
-				<a class="btn btn-primary btn-outline w-48" href={src}>View</a>
 			</div>
 		{/each}
 	</div>

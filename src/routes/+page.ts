@@ -33,12 +33,12 @@ export const load = (async () => {
                 photo: portfolio_reels,
                 src: '/reels'
             },
-            {
-                title: 'Resources',
-                description: 'Explore a collection of downloadable resources',
-                photo: portfolio_resources,
-                src: '/resources'
-            }
+            // {
+            //     title: 'Resources',
+            //     description: 'Explore a collection of downloadable resources',
+            //     photo: portfolio_resources,
+            //     src: '/resources'
+            // }
 		] as portfolioObject[]
 	};
 }) satisfies PageLoad;

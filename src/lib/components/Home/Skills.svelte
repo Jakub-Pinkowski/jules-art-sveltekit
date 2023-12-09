@@ -28,7 +28,7 @@
 	] as Skill[];
 </script>
 
-<div class="p-4 mb-8 flex flex-col md:flex-row">
+<div class="p-4 my-16 flex flex-col md:flex-row">
 	<div class="md:w-1/2">
 		<h2 class="text-3xl my-8">Skills</h2>
 		{#each skills as { title, description }}
