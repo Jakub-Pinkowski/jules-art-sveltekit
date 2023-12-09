@@ -33,7 +33,7 @@
 		<h2 class="text-3xl my-8 md:">Skills</h2>
 		{#each skills as { title, description }}
 			<div class="flex flex-col items-center md:flex-row">
-				<div class="w-full md:w-1/3 md:mx-4">
+				<div class="w-full">
 					<h3 class="text-2xl font-light mt-8 mb-2 flex items-center">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +56,7 @@
 		{/each}
 	</div>
 	<div class="flex flex-row mt-8 md:w-1/2">
-		<img class="w-1/2 p-4 object-cover" src={skills_1} alt="girl with a camera" />
-		<img class="w-1/2 p-4 object-cover" src={skills_2} alt="guy throwing a camera" />
+		<img class="w-1/2 p-4 object-cover rounded-3xl" src={skills_1} alt="girl with a camera" />
+		<img class="w-1/2 p-4 object-cover rounded-3xl" src={skills_2} alt="guy throwing a camera" />
 	</div>
 </div>
