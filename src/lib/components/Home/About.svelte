@@ -5,7 +5,10 @@
 		"My favourite style is “elegant-classy” or “romantic-nostalgic.” If I were to describe it in words - it's something about the set up in beautiful location, golden light, dreamy or dramatic mood, red lipstick, little black dress.";
 	const style_description_2 = '...but I am always up for experiments!';
 
-    import frame from '$lib/assets/images/frame.png';
+	import about from '$lib/assets/images/about.jpg';
+	import frame_light from '$lib/assets/images/frame_light.png';
+	import frame_dark from '$lib/assets/images/frame_dark.png';
+	import AvatarSvg from '$lib/components/UI/AvatarSVG.svelte';
 </script>
 
 <div class="flex flex-col md:flex-row">
@@ -18,7 +21,11 @@
 		<p class="text-base my-4">{style_description}</p>
 		<p class="text-base my-4">{style_description_2}</p>
 	</div>
-	<div class="flex justify-center items-center rounded-full md:w-1/2 mx-10 z-1">
-		<img class="p-8" src={frame} alt="author" />
+	<div class="photo relative text-center items-center justify-center w-1/2 h-full flex">
+		<img src={about} alt="author" class="w-2/3 h-2/3 rounded-full object-cover" />
+		<AvatarSvg />
 	</div>
 </div>
+
+<style lang="scss">
+</style>
