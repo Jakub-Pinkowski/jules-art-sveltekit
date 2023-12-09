@@ -10,12 +10,12 @@
 </script>
 
 <div class="flex">
-	<div class="w-1/2 p-8 text-justify">
-		<h1 class="text-4xl font-semibold my-8">Jules-Art</h1>
+	<div class="w-1/2 p-4 text-justify">
+		<h1 class="text-5xl font-semibold my-8">Jules-Art</h1>
 		<h2 class="text-3xl my-8">Videography & Photography</h2>
-		<h3 class="text-xl my-4">About me</h3>
+		<h3 class="text-2xl my-4">About me</h3>
 		<p class="text-base">{about_description}</p>
-		<h3 class="text-xl my-8">Films, Style & Aesthetics</h3>
+		<h3 class="text-2xl my-8">Films, Style & Aesthetics</h3>
 		<p class="text-base my-4">{style_description}</p>
 		<p class="text-base my-4">{style_description_2}</p>
 	</div>

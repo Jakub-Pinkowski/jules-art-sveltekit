@@ -21,6 +21,7 @@
 <!-- TODO: Make it more coincice -->
 {#if open}
 	<div class="text-center text-semibold text-2xl p-4 pt-0 mt-12 tracking-wider">
+        <!-- TODO: add transition -->
         <ThemeToggler />
 		<a
 			href={links[0].path}
