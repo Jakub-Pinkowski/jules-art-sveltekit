@@ -26,7 +26,9 @@
 
 <div class="max-md:hidden">
 	<nav class="absolute z-10 right-8 top-8 text-white">
-		<Hamburger bind:open --color={primary} />
+		<div class="absolute right-0 tp-0">
+			<Hamburger bind:open --color='white' />
+		</div>
 		<MobileNavbar bind:open />
 	</nav>
 	<div>
