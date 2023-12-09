@@ -10,7 +10,7 @@
 </script>
 
 {#if open}
-	<div class="text-center text-semibold text-2xl p-4 pt-0">
+	<div class="text-center text-semibold text-2xl p-4 pt-0 tracking-wider">
 		{#each ['Home', 'Photos', 'Movies', 'Reels', 'Resources'] as link, i}
 			<a
 				href={link === 'Home' ? '/' : `/${link.toLowerCase()}`}
@@ -24,7 +24,7 @@
 	</div>
 
 	<div
-		class=" border-solid border-dark border-t-2 h-0 mb-8"
+		class=" border-solid border-primary border-t-2 h-0 mb-8"
 		transition:scale={{ duration: 400, easing: quadOut, opacity: 1 }}
 	/>
 {/if}
