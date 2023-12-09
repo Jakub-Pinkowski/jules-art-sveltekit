@@ -17,14 +17,15 @@
 			>P.S. It goes straight to email box, and I read it every day!</span
 		>
 		<form action="" class="flex flex-col mb-8">
-			<input class="input input-primary w-full max-w-md my-4" type="text" placeholder="Name" />
-			<input class="input input-primary w-full max-w-md my-4" type="text" placeholder="E-mail" />
-			<textarea class="textarea textarea-primary w-full max-w-md my-4" placeholder="Message"
+			<input class="input input-bordered w-full max-w-md my-4" type="text" placeholder="Name" />
+			<input class="input input-bordered w-full max-w-md my-4" type="text" placeholder="E-mail" />
+			<textarea class="textarea textarea-bordered w-full max-w-md my-4" placeholder="Message"
 			></textarea>
 			<button class="btn btn-outline w-48 my-4" type="submit"> Submit </button>
 		</form>
 		<span class="text-lg font-light my-4">Let's connect on Social Media</span>
 		<div class="flex">
+			<!-- TODO: Make it obvious you can ckilck those on mobile on dark theme-->
 			<a href={insta_link}>
 				<img
 					class="w-16 h-16 mr-4 my-4 transition-transform

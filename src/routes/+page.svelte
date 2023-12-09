@@ -8,6 +8,8 @@
 	import Portfolio from '$lib/components/Home/Portfolio.svelte';
 	import Skills from '$lib/components/Home/Skills.svelte';
 	import Contact from '$lib/components/Home/Contact.svelte';
+
+    //TODO: Fix mainvideo mobile
 </script>
 
 <div>
