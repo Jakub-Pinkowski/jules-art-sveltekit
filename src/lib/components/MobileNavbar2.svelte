@@ -2,7 +2,11 @@
 	import { fly, scale } from 'svelte/transition';
 	import { quadOut } from 'svelte/easing';
 
-	export let open: any;
+	export let open: boolean;
+
+	const closeMenu = () => {
+		open = false;
+	};
 </script>
 
 {#if open}
@@ -11,6 +15,7 @@
 			<a
 				href={link === 'Home' ? '/' : `/${link.toLowerCase()}`}
 				class=" block cursor-pointer mx-auto my-4 hover:underline"
+				on:click={closeMenu}
 				transition:fly={{ y: -15, delay: 50 * i }}
 			>
 				{link}
@@ -19,13 +24,7 @@
 	</div>
 
 	<div
-		class=" border-solid border-dark border-t-2 h-0"
-		transition:scale={{ duration: 500, easing: quadOut, opacity: 1 }}
+		class=" border-solid border-dark border-t-2 h-0 mb-8"
+		transition:scale={{ duration: 400, easing: quadOut, opacity: 1 }}
 	/>
 {/if}
-
-<style>
-	:global(html) {
-		background: #1d1d2f;
-	}
-</style>
