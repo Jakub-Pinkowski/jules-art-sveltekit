@@ -7,7 +7,6 @@
 	import MobileNavbar2 from '$lib/components/MobileNavbar2.svelte';
 
 	const primary = '#c8b6ff';
-    const dark = '#3c096c';
 	let open: boolean;
 
 </script>
