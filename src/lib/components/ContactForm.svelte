@@ -1,9 +1,12 @@
 <script lang="ts">
 	import axios from 'axios';
+	import { fade } from 'svelte/transition';
 
 	let name: string;
 	let email: string;
 	let message: string;
+	let toastSuccess: boolean = false;
+	let toastError: boolean = false;
 
 	const handleSubmit = async (e: Event) => {
 		e.preventDefault();
@@ -17,18 +20,28 @@
 
 		try {
 			const response = await axios.post(url, data);
-			console.log(response);
 
 			if (response.status === 200) {
-				alert('Form submitted successfully!');
+				toastSuccess = true;
+				toastError = false;
 				resetForm();
 			} else {
-				alert('Unexpected response status: ' + response.status);
+				toastSuccess = false;
+				toastError = true;
+				console.error('Unexpected response status:', response.status);
 			}
 		} catch (error) {
-			console.error('Error submitting form:', error);
-			alert('Error submitting form. Please try again.');
+			toastSuccess = false;
+			toastError = true;
+			console.error('Unexpected error:', error);
 		}
+
+		setTimeout(() => {
+			toastSuccess = false;
+			toastError = false;
+		}, 2000);
+
+		resetForm();
 	};
 
 	const resetForm = () => {
@@ -69,3 +82,19 @@
 	></textarea>
 	<button class="btn btn-outline my-4 w-48" type="submit"> Submit </button>
 </form>
+
+{#if toastSuccess}
+	<div class="toast toast-center toast-top" transition:fade>
+		<div class="alert alert-success">
+			<span>Message sent successfully.</span>
+		</div>
+	</div>
+{/if}
+
+{#if toastError}
+	<div class="toast toast-center toast-top" transition:fade>
+		<div class="alert alert-error">
+			<span>Error sending message</span>
+		</div>
+	</div>
+{/if}
