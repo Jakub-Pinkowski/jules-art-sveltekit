@@ -26,17 +26,17 @@
 <div class="mt-8">
 	<!-- Gallery -->
 
-	<div class="columns-3 gap-4 my-8 w-full h-auto">
+	<div class="my-8 h-auto w-full columns-3 gap-4">
 		{#each data.photos as { name, src }}
 			<div class="m-4">
 				<div
-					class="w-full overflow-hidden cursor-pointer transition-transform hover:opacity-90 ease-out duration-500"
+					class="w-full cursor-pointer overflow-hidden transition-transform duration-500 ease-out hover:opacity-90"
 				>
 					<!-- svelte-ignore missing-declaration -->
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 					<img
-						class="object-cover w-full h-full shadow-2xl rounded-lg"
+						class="h-full w-full rounded-lg object-cover shadow-2xl"
 						{src}
 						alt="artictic"
 						on:click={() => openModal(src)}
@@ -52,7 +52,7 @@
 		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 		<dialog
 			transition:fade
-			class="max-w-5xl mx-auto flex items-center justify-center outline-none rounded-lg"
+			class="mx-auto flex max-w-5xl items-center justify-center rounded-lg outline-none"
 			bind:this={dialog}
 			on:close={() => closeModal()}
 			on:click|self={() => closeModal()}
@@ -61,7 +61,7 @@
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div on:click={() => closeModal()}>
 				<div class="w-auto max-w-4xl overflow-hidden">
-					<img class="object-contain max-h-[50rem]" src={selectedPhotoSrc} alt="Selected" />
+					<img class="max-h-[50rem] object-contain" src={selectedPhotoSrc} alt="Selected" />
 				</div>
 			</div>
 		</dialog>
