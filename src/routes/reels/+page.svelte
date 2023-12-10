@@ -9,22 +9,89 @@
 	let activeIndex: number = 0;
 
 	// Carousel finctionality
+	const nextSlide = () => {
+		activeIndex = (activeIndex + 1) % reels.length;
+	};
+
+	const prevSlide = () => {
+		activeIndex = (activeIndex - 1 + reels.length) % reels.length;
+	};
+
+	// Swiping functionality
+	let xDown: number | null = null;
+	let yDown: number | null = null;
+
+	const getTouches = (evt: TouchEvent) => {
+		return evt.touches;
+	};
+
+	const handleTouchStart = (evt: TouchEvent) => {
+		const firstTouch = getTouches(evt)[0];
+		xDown = firstTouch.clientX;
+		yDown = firstTouch.clientY;
+	};
+
+	const handleTouchMove = (evt: TouchEvent) => {
+		if (!xDown || !yDown) {
+			return;
+		}
+
+		let xUp = evt.touches[0].clientX;
+		let yUp = evt.touches[0].clientY;
+
+		let xDiff = xDown - xUp;
+		let yDiff = yDown - yUp;
+
+		if (Math.abs(xDiff) > Math.abs(yDiff)) {
+			if (xDiff > 0) {
+				nextSlide();
+			} else {
+				prevSlide();
+			}
+		}
+
+		xDown = null;
+		yDown = null;
+	};
+
+	const handleTouchEnd = (evt: TouchEvent) => {
+		if (!xDown || !yDown) {
+			return;
+		}
+		handleTouchMove(evt);
+	};
 </script>
 
 <div class="p-4">
 	<h2 class=" my-8 pl-4 text-3xl font-medium md:my-4">Reels</h2>
 	<div>
-		<div id="carousel">
+		<div
+			id="carousel"
+			on:touchstart={handleTouchStart}
+			on:touchmove={handleTouchMove}
+			on:touchend={handleTouchEnd}
+		>
 			<div id="indicator">
-				<button type="button"></button>
+				{#each reels as { name }, i}
+					<button
+						type="button"
+						class={i === activeIndex ? 'active' : ''}
+						on:click={() => (activeIndex = i)}
+					></button>
+				{/each}
 			</div>
 			<div id="carousel-inner">
-				<div id="single-item">
-					<video src=""></video>
-					<div id="carousel-caption">
-						<span></span>
+				{#each reels as { name, src, poster }, i}
+					<div id="single-item">
+						<!-- svelte-ignore a11y-media-has-caption -->
+						<video controls loop {src} {poster}></video>
+						<div id="carousel-caption">
+							<span>
+								{name}
+							</span>
+						</div>
 					</div>
-				</div>
+				{/each}
 			</div>
 		</div>
 	</div>
