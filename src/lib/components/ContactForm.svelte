@@ -5,7 +5,7 @@
 	let email: string;
 	let message: string;
 
-	const handleSubmit = (e: Event) => {
+	const handleSubmit = async (e: Event) => {
 		e.preventDefault();
 		const url = 'https://formspree.io/f/xgejepyk';
 
@@ -15,18 +15,20 @@
 			message
 		};
 
-		console.log(data);
+		try {
+			const response = await axios.post(url, data);
+			console.log(response);
 
-		axios
-			.post(url, data)
-			.then((res) => {
-				console.log(res);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-
-		resetForm();
+			if (response.status === 200) {
+				alert('Form submitted successfully!');
+				resetForm();
+			} else {
+				alert('Unexpected response status: ' + response.status);
+			}
+		} catch (error) {
+			console.error('Error submitting form:', error);
+			alert('Error submitting form. Please try again.');
+		}
 	};
 
 	const resetForm = () => {
