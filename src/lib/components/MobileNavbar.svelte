@@ -20,12 +20,11 @@
 
 <!-- TODO: Make it more coincice -->
 {#if open}
-	<div class="text-center text-semibold text-2xl p-4 pt-0 mt-12 tracking-wider">
-        <!-- TODO: add transition -->
-        <ThemeToggler />
+	<div class="text-semibold mt-12 p-4 pt-0 text-center text-2xl tracking-wider">
+		<ThemeToggler />
 		<a
 			href={links[0].path}
-			class="block cursor-pointer mx-auto my-4 hover:underline"
+			class="mx-auto my-4 block cursor-pointer hover:underline"
 			on:click={closeMenu}
 			in:fly={{ y: -15, delay: 50 }}
 		>
@@ -34,7 +33,7 @@
 
 		<a
 			href={links[1].path}
-			class="block cursor-pointer mx-auto my-4 hover:underline"
+			class="mx-auto my-4 block cursor-pointer hover:underline"
 			on:click={closeMenu}
 			in:fly={{ y: -15, delay: 100 }}
 		>
@@ -43,7 +42,7 @@
 
 		<a
 			href={links[2].path}
-			class="block cursor-pointer mx-auto my-4 hover:underline"
+			class="mx-auto my-4 block cursor-pointer hover:underline"
 			on:click={closeMenu}
 			in:fly={{ y: -15, delay: 150 }}
 		>
@@ -52,7 +51,7 @@
 
 		<a
 			href={links[3].path}
-			class="block cursor-pointer mx-auto my-4 hover:underline"
+			class="mx-auto my-4 block cursor-pointer hover:underline"
 			on:click={closeMenu}
 			in:fly={{ y: -15, delay: 200 }}
 		>
@@ -61,7 +60,7 @@
 
 		<a
 			href={links[4].path}
-			class="block cursor-pointer mx-auto my-4 hover:underline"
+			class="mx-auto my-4 block cursor-pointer hover:underline"
 			on:click={closeMenu}
 			in:fly={{ y: -15, delay: 250 }}
 		>
@@ -70,7 +69,7 @@
 	</div>
 
 	<div
-		class="border-solid border-primary border-t-2 h-0 mb-8"
+		class="mb-8 h-0 border-t-2 border-solid border-primary"
 		in:scale={{ duration: 750, easing: quadOut, opacity: 1 }}
 	/>
 {/if}
