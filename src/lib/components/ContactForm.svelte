@@ -37,17 +37,14 @@
 			if (response.status === 200) {
 				toastMessage = 'Message sent successfully!';
 				toastSuccess = true;
-				toastError = false;
 				resetForm();
 			} else {
 				toastMessage = 'Something went wrong. Please try again later.';
-				toastSuccess = false;
 				toastError = true;
 				console.error('Unexpected response status:', response.status);
 			}
 		} catch (error) {
 			toastMessage = 'Something went wrong. Please try again later.';
-			toastSuccess = false;
 			toastError = true;
 			console.error('Unexpected error:', error);
 		}
