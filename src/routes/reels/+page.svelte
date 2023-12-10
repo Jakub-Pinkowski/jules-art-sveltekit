@@ -4,6 +4,12 @@
 	export let data: PageData;
 
 	const { reels } = data;
+
+	let activeIndex: number = 0;
+
+	const setActiveIndex = (index: number) => {
+		activeIndex = index;
+	};
 </script>
 
 <div class="p-4">
@@ -12,18 +18,25 @@
 		{#each reels as { name, src, poster }, i (name)}
 			<div id={name} class="carousel-item relative w-full">
 				<!-- svelte-ignore a11y-media-has-caption -->
-				<video class="" {src} {poster} controls></video>
+				<video {src} {poster} controls></video>
 				<span
-					class="absolute bottom-12 left-0 right-0 z-10 text-center text-2xl font-medium text-gray-50"
+					class="absolute bottom-44 left-0 right-0 z-10 text-center text-2xl font-medium text-gray-50"
 				>
 					{name}
 				</span>
 			</div>
 		{/each}
 	</div>
-	<div role="tablist" class="tabs tabs-bordered">
+	<div role="tablist" class=" tabs tabs-bordered relative bottom-36 w-full items-center">
 		{#each reels as { name }, i (name)}
-			<a role="tab" href={`#${name}`} class="tab">{i + 1}</a>
+			<!-- svelte-ignore a11y-missing-content -->
+			<a
+				id={name}
+				on:click={() => setActiveIndex(i)}
+				role="tab"
+				href={`#${name}`}
+				class={`tab m-1 h-1 bg-gray-50 ${i === activeIndex ? 'bg-gray-900' : ''}`}
+			></a>
 		{/each}
 	</div>
 </div>
