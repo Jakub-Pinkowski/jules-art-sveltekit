@@ -10,7 +10,7 @@
 	<h2 class="my-8 pl-4 text-3xl font-medium md:my-4">Reels</h2>
 	<div class="carousel carousel-center w-full rounded-box">
 		{#each reels as { name, src, poster }, i (name)}
-			<div class="carousel-item relative w-full text-ellipsis">
+			<div id={name} class="carousel-item relative w-full">
 				<!-- svelte-ignore a11y-media-has-caption -->
 				<video class="" {src} {poster}></video>
 				<span
@@ -19,6 +19,16 @@
 					{name}
 				</span>
 			</div>
+		{/each}
+	</div>
+	<div role="tablist" class="tabs tabs-bordered">
+		{#each reels as { name }, i (name)}
+			<a
+				role="tab"
+				href={`#${name}`}
+                class="tab"
+                >{i + 1}</a
+			>
 		{/each}
 	</div>
 </div>
