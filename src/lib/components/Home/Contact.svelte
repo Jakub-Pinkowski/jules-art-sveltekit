@@ -1,10 +1,12 @@
 <script lang="ts">
 	import passion_photo from '$lib/assets/images/contact.jpg';
-	import insta_icon from '$lib/assets/icons/insta_icon.svg';
-	import tiktok_icon from '$lib/assets/icons/tiktok_icon.svg';
+	import insta_icon from '$lib/assets/icons/insta_icon.png';
+	import tiktok_icon from '$lib/assets/icons/tiktok_icon.png';
+	import youtube_icon from '$lib/assets/icons/youtube_icon.png';
 
 	const insta_link = 'https://www.instagram.com/jules_matias/?hl=en';
 	const tiktok_link = 'https://www.tiktok.com/@jules_matias?_t=8g9XXu8AGnI&_r=1';
+	const youtube_link = 'https://www.youtube.com/@julesmatias/videos';
 </script>
 
 <div class="flex flex-col md:flex-row">
@@ -23,12 +25,11 @@
 			></textarea>
 			<button class="btn btn-outline my-4 w-48" type="submit"> Submit </button>
 		</form>
-		<span class="my-4 text-lg font-light">Let's connect on Social Media</span>
+		<span class="my-4 text-lg font-light">Let's connect on Social Media!</span>
 		<div class="flex">
-			<!-- TODO: Make it obvious you can ckilck those on mobile on dark theme-->
 			<a href={insta_link}>
 				<img
-					class="my-4 mr-4 h-16 w-16 transform
+					class="my-4 mr-4 h-12 w-12 transform
                             transition-transform duration-300 ease-in-out hover:scale-110"
 					src={insta_icon}
 					alt="instagram icon"
@@ -36,10 +37,18 @@
 			</a>
 			<a href={tiktok_link}>
 				<img
-					class="my-4 mr-4 h-16 w-16
+					class="my-4 mr-4 h-12 w-12
                             transform transition-transform duration-300 ease-in-out hover:scale-110"
 					src={tiktok_icon}
 					alt="tiktok icon"
+				/>
+			</a>
+			<a href={youtube_link}>
+				<img
+					class="my-4 mr-4 h-12 w-12
+                        transform transition-transform duration-300 ease-in-out hover:scale-110"
+					src={youtube_icon}
+					alt="youtube icon"
 				/>
 			</a>
 		</div>
