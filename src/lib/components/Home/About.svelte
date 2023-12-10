@@ -16,7 +16,7 @@
 		<h3 class="text-xl my-4">About me</h3>
 		<p class="text-lg">{about_description}</p>
 		<h3 class="text-xl my-8">Films, Style & Aesthetics</h3>
-		<p class="text-lg my-4">{style_description}</p>
+		<p class="text-lg my-4">{style_description}</p>https://fantasy.premierleague.com/my-team#fixtures
 		<p class="text-lg my-4">{style_description_2}</p>
 	</div>
 	<!-- TODO: On mobile this should be below "About me" -->
