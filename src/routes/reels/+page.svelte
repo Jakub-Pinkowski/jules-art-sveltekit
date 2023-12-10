@@ -12,7 +12,7 @@
 		{#each reels as { name, src, poster }, i (name)}
 			<div id={name} class="carousel-item relative w-full">
 				<!-- svelte-ignore a11y-media-has-caption -->
-				<video class="" {src} {poster}></video>
+				<video class="" {src} {poster} controls></video>
 				<span
 					class="absolute bottom-4 left-0 right-0 z-10 text-center text-2xl font-medium text-gray-50"
 				>
