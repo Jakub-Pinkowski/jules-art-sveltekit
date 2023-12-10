@@ -29,9 +29,8 @@
 
 <div class="flex flex-col md:flex-row">
 	<div class="p-4 text-justify md:w-1/2">
-		<h1 class="my-8 text-5xl font-semibold">Jules-Art</h1>
-		<h2 class="my-8 text-3xl">Videography & Photography</h2>
-		<h3 class="my-4 text-2xl">About me</h3>
+		<h1 class="my-4 text-5xl font-semibold">Jules-Art</h1>
+		<h2 class="text-2xl md:text-3xl">Videography & Photography</h2>
 		{#if isMobile}
 			<div
 				class="relative my-12 flex h-full items-center justify-center text-center md:my-24 md:w-1/2"
@@ -40,6 +39,7 @@
 				<AvatarSvg />
 			</div>
 		{/if}
+		<h3 class="my-4 text-2xl">About me</h3>
 		<p class="text-lg font-light">{about_description}</p>
 		<h3 class="my-8 text-2xl">Films, Style & Aesthetics</h3>
 		<p class="my-4 text-lg font-light">{style_description}</p>
