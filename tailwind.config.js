@@ -7,6 +7,9 @@ export default {
 				primary: '#c8b6ff',
 				secondary: '#bbd0ff',
 				dark: '#3c096c'
+			},
+			text: {
+				DEFAULT: 'tracking-wide leading-relaxed'
 			}
 		}
 	},
