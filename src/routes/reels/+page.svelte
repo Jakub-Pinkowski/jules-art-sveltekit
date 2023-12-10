@@ -14,7 +14,7 @@
 				<!-- svelte-ignore a11y-media-has-caption -->
 				<video class="" {src} {poster} controls></video>
 				<span
-					class="absolute bottom-4 left-0 right-0 z-10 text-center text-2xl font-medium text-gray-50"
+					class="absolute bottom-12 left-0 right-0 z-10 text-center text-2xl font-medium text-gray-50"
 				>
 					{name}
 				</span>
@@ -23,12 +23,7 @@
 	</div>
 	<div role="tablist" class="tabs tabs-bordered">
 		{#each reels as { name }, i (name)}
-			<a
-				role="tab"
-				href={`#${name}`}
-                class="tab"
-                >{i + 1}</a
-			>
+			<a role="tab" href={`#${name}`} class="tab">{i + 1}</a>
 		{/each}
 	</div>
 </div>
