@@ -64,15 +64,16 @@
 
 <div class="p-4">
 	<h2 class=" my-8 pl-4 text-3xl font-medium md:my-4">Reels</h2>
-	<div>
+	<div class="min-h-screen">
 		<div
 			id="carousel"
 			on:touchstart={handleTouchStart}
 			on:touchmove={handleTouchMove}
 			on:touchend={handleTouchEnd}
 		>
+			<!-- Indicator -->
 			<div id="indicator" class="flex items-center justify-center gap-4">
-				{#each reels as { name }, i}
+				{#each reels as { name }, i (name)}
 					<button
 						type="button"
 						class={`m-0 h-4 w-12 cursor-pointer bg-gray-300 p-0 ${
@@ -83,9 +84,15 @@
 					></button>
 				{/each}
 			</div>
+
+			<!-- Inner  -->
 			<div id="carousel-inner">
-				{#each reels as { name, src, poster }, i}
-					<div id="single-item" class=" flex h-5/6 items-center justify-center">
+				{#each reels as { name, src, poster }, i (name)}
+					<!-- Single iteam -->
+					<div
+						id="single-item"
+						class={`flex h-5/6 items-center justify-center ${i === activeIndex ? 'active' : ''}`}
+					>
 						<!-- svelte-ignore a11y-media-has-caption -->
 						<video
 							class="h-auto max-h-full w-auto max-w-full"
