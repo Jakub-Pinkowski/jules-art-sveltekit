@@ -14,6 +14,19 @@
 	};
 
 	// Swiping functionality
+	// FIXME: All swiping functionality
+	const nextSlide = () => {
+		if (activeIndex < reels.length - 1) {
+			setActiveIndex(activeIndex + 1);
+		}
+	};
+
+	const prevSlide = () => {
+		if (activeIndex > 0) {
+			setActiveIndex(activeIndex - 1);
+		}
+	};
+
 	const getTouches = (evt: TouchEvent) => {
 		return evt.touches;
 	};
@@ -37,13 +50,9 @@
 
 		if (Math.abs(xDiff) > Math.abs(yDiff)) {
 			if (xDiff > 0) {
-				if (activeIndex < reels.length - 1) {
-					setActiveIndex(activeIndex + 1);
-				}
+				nextSlide();
 			} else {
-				if (activeIndex > 0) {
-					setActiveIndex(activeIndex - 1);
-				}
+				prevSlide();
 			}
 		}
 
@@ -65,7 +74,7 @@
 		on:touchstart={handleTouchStart}
 		on:touchmove={handleTouchMove}
 		on:touchend={handleTouchEnd}
-		class="carousel carousel-center w-full rounded-box"
+		class="carousel w-full rounded-box"
 	>
 		{#each reels as { name, src, poster }, i (name)}
 			<div id={name} class="carousel-item relative w-full">
