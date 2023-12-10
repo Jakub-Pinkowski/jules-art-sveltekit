@@ -8,8 +8,8 @@
 	let toastSuccess: boolean = false;
 	let toastError: boolean = false;
 
-	const handleSubmit = async (e: Event) => {
-		e.preventDefault();
+	const handleSubmit = async (event: Event) => {
+		event.preventDefault();
 		const url = 'https://formspree.io/f/xgejepyk';
 
 		const data = {
