@@ -8,36 +8,36 @@
 </script>
 
 <div class="flex flex-col md:flex-row">
-	<div class="p-4 md:w-2/5 text-justify md:order-2">
-		<h2 class="text-3xl md:">Contact me</h2>
-		<p class="text-lg font-light my-4">
+	<div class="p-4 text-justify md:order-2 md:w-2/5">
+		<h2 class="md: text-3xl">Contact me</h2>
+		<p class="my-4 text-lg font-light">
 			Ready to collaborate? I'd love to hear about your project and how we can bring it to life
 		</p>
-		<span class="text-md font-light my-4"
+		<span class="text-md my-4 font-light"
 			>P.S. It goes straight to email box, and I read it every day!</span
 		>
-		<form action="" class="flex flex-col mb-8">
-			<input class="input input-bordered w-full max-w-md my-4" type="text" placeholder="Name" />
-			<input class="input input-bordered w-full max-w-md my-4" type="text" placeholder="E-mail" />
-			<textarea class="textarea textarea-bordered w-full max-w-md my-4" placeholder="Message"
+		<form action="" class="mb-8 flex flex-col">
+			<input class="input input-bordered my-4 w-full max-w-md" type="text" placeholder="Name" />
+			<input class="input input-bordered my-4 w-full max-w-md" type="text" placeholder="E-mail" />
+			<textarea class="textarea textarea-bordered my-4 w-full max-w-md" placeholder="Message"
 			></textarea>
-			<button class="btn btn-outline w-48 my-4" type="submit"> Submit </button>
+			<button class="btn btn-outline my-4 w-48" type="submit"> Submit </button>
 		</form>
-		<span class="text-lg font-light my-4">Let's connect on Social Media</span>
+		<span class="my-4 text-lg font-light">Let's connect on Social Media</span>
 		<div class="flex">
 			<!-- TODO: Make it obvious you can ckilck those on mobile on dark theme-->
 			<a href={insta_link}>
 				<img
-					class="w-16 h-16 mr-4 my-4 transition-transform
-                            duration-300 ease-in-out transform hover:scale-110"
+					class="my-4 mr-4 h-16 w-16 transform
+                            transition-transform duration-300 ease-in-out hover:scale-110"
 					src={insta_icon}
 					alt="instagram icon"
 				/>
 			</a>
 			<a href={tiktok_link}>
 				<img
-					class="w-16 h-16 mr-4 my-4
-                            transition-transform duration-300 ease-in-out transform hover:scale-110"
+					class="my-4 mr-4 h-16 w-16
+                            transform transition-transform duration-300 ease-in-out hover:scale-110"
 					src={tiktok_icon}
 					alt="tiktok icon"
 				/>
@@ -46,7 +46,7 @@
 	</div>
 
 	<img
-		class="w-full p-4 object-cover rounded-3xl md:w-3/5 md:order-1"
+		class="w-full rounded-3xl object-cover p-4 md:order-1 md:w-3/5"
 		src={passion_photo}
 		alt="passion let us here"
 	/>
