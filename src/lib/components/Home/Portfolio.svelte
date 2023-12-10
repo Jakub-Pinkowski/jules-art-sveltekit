@@ -8,11 +8,11 @@
 		{#each data.portfolio as { title, description, photo, src }}
 			<div class="w-full md:mx-4 md:w-1/3">
 				<!-- TODO: Add animation when scrolling -->
-
-				<h3 class="mb-2 mt-8 text-2xl font-light">
-					{title}
-				</h3>
-
+				<a href={src}>
+					<h3 class="mb-2 mt-8 text-2xl font-light">
+						{title}
+					</h3>
+				</a>
 				<span class="text-md my-4 font-light">
 					{description}
 				</span>
