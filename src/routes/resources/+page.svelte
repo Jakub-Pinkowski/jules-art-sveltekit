@@ -16,7 +16,7 @@
 
 <div class="mt-8 flex flex-col md:flex-row">
 	{#each data.resources as { name, description, src, poster }}
-		<div class="card card-compact w-full bg-base-100 shadow-xl m-8 max-w-lg">
+		<div class="card card-compact m-8 w-full max-w-lg bg-base-100 shadow-xl">
 			<figure>
 				<img src={poster} alt={name} />
 			</figure>
@@ -36,7 +36,7 @@
 
 	<!-- Toast -->
 	{#if toastVisible}
-		<div class="toast toast-top toast-center top-20" transition:fade>
+		<div class="toast toast-center toast-top top-20" transition:fade>
 			<div class="alert alert-success">
 				<span>File downloaded successfully</span>
 			</div>

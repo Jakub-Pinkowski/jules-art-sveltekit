@@ -28,13 +28,13 @@
 	] as Skill[];
 </script>
 
-<div class="p-4 my-16 flex flex-col md:flex-row">
+<div class="my-16 flex flex-col p-4 md:flex-row">
 	<div class="md:w-1/2">
-		<h2 class="text-3xl my-8">Skills</h2>
+		<h2 class="my-8 text-3xl">Skills</h2>
 		{#each skills as { title, description }}
 			<div class="flex flex-col items-center md:flex-row">
 				<div class="w-full">
-					<h3 class="text-2xl font-light mt-8 mb-2 flex items-center">
+					<h3 class="mb-2 mt-8 flex items-center text-2xl font-light">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							height="16"
@@ -48,15 +48,15 @@
 						>
 						{title}
 					</h3>
-					<span class="text-lg font-light my-4">
+					<span class="my-4 text-lg font-light">
 						{description}
 					</span>
 				</div>
 			</div>
 		{/each}
 	</div>
-	<div class="flex flex-row mt-8 md:w-1/2">
-		<img class="w-1/2 p-4 object-cover rounded-3xl" src={skills_1} alt="girl with a camera" />
-		<img class="w-1/2 p-4 object-cover rounded-3xl" src={skills_2} alt="guy throwing a camera" />
+	<div class="mt-8 flex flex-row md:w-1/2">
+		<img class="w-1/2 rounded-3xl object-cover p-4" src={skills_1} alt="girl with a camera" />
+		<img class="w-1/2 rounded-3xl object-cover p-4" src={skills_2} alt="guy throwing a camera" />
 	</div>
 </div>

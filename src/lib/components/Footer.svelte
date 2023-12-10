@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<footer class="flex place-content-between items-center p-2 bg-neutral text-neutral-content">
+<footer class="flex place-content-between items-center bg-neutral p-2 text-neutral-content">
 	<aside class="items-center">
 		<p>© 2023 Jakub Pinkowski</p>
 	</aside>

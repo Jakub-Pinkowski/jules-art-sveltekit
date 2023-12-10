@@ -9,15 +9,15 @@
 	let open: boolean;
 </script>
 
-<div class="flex flex-col min-h-screen">
+<div class="flex min-h-screen flex-col">
 	<header>
 		<DesktopNavbar />
-		<nav class="md:hidden absolute right-8 top-8">
+		<nav class="absolute right-8 top-8 md:hidden">
 			<Hamburger bind:open --color={primary} />
 		</nav>
 		<MobileNavbar bind:open />
 	</header>
-	<main class="flex-1 mx-6 overflow-hidden">
+	<main class="mx-6 flex-1 overflow-hidden">
 		<slot />
 	</main>
 	<Footer></Footer>

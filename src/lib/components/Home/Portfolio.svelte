@@ -3,21 +3,21 @@
 </script>
 
 <div class="p-4">
-	<h2 class="text-3xl my-8">Portfolio Highlights</h2>
-	<div class="flex flex-col text-center items-center md:flex-row">
+	<h2 class="my-8 text-3xl">Portfolio Highlights</h2>
+	<div class="flex flex-col items-center text-center md:flex-row">
 		{#each data.portfolio as { title, description, photo, src }}
-			<div class="w-full md:w-1/3 md:mx-4">
+			<div class="w-full md:mx-4 md:w-1/3">
 				<a href={src}>
-					<h3 class="text-2xl font-light mt-8 mb-2">
+					<h3 class="mb-2 mt-8 text-2xl font-light">
 						{title}
 					</h3>
 				</a>
-				<span class="text-md font-light my-4">
+				<span class="text-md my-4 font-light">
 					{description}
 				</span>
 				<a href={src}>
 					<img
-						class="object-cover w-full h-full my-4 shadow-2xl rounded-lg md:hover:opacity-90 md:hover:scale-105 transition-transform duration-300 ease-in-out"
+						class="my-4 h-full w-full rounded-lg object-cover shadow-2xl transition-transform duration-300 ease-in-out md:hover:scale-105 md:hover:opacity-90"
 						src={photo}
 						alt=""
 					/></a
