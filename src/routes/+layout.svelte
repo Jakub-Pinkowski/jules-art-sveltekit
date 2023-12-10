@@ -17,7 +17,7 @@
 		</nav>
 		<MobileNavbar bind:open />
 	</header>
-	<main class="md:mx-6 flex-1 overflow-hidden">
+	<main class="flex-1 overflow-hidden md:mx-6">
 		<slot />
 	</main>
 	<Footer></Footer>
