@@ -7,6 +7,7 @@
 	let message: string;
 	let toastSuccess: boolean = false;
 	let toastError: boolean = false;
+	let toastMessage: string;
 
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
@@ -18,19 +19,34 @@
 			message
 		};
 
+		if (!name || !email || !message || !isValidEmail(email)) {
+			toastMessage = 'Please fill out all fields correctly.';
+			toastError = true;
+
+			setTimeout(() => {
+				toastSuccess = false;
+				toastError = false;
+			}, 2000);
+
+			return;
+		}
+
 		try {
 			const response = await axios.post(url, data);
 
 			if (response.status === 200) {
+				toastMessage = 'Message sent successfully!';
 				toastSuccess = true;
 				toastError = false;
 				resetForm();
 			} else {
+				toastMessage = 'Something went wrong. Please try again later.';
 				toastSuccess = false;
 				toastError = true;
 				console.error('Unexpected response status:', response.status);
 			}
 		} catch (error) {
+			toastMessage = 'Something went wrong. Please try again later.';
 			toastSuccess = false;
 			toastError = true;
 			console.error('Unexpected error:', error);
@@ -48,6 +64,11 @@
 		name = '';
 		email = '';
 		message = '';
+	};
+
+	const isValidEmail = (value: string): boolean => {
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		return emailRegex.test(value);
 	};
 </script>
 
@@ -86,7 +107,7 @@
 {#if toastSuccess}
 	<div class="toast toast-center toast-top" transition:fade>
 		<div class="alert alert-success">
-			<span>Message sent successfully.</span>
+			<span>{toastMessage}</span>
 		</div>
 	</div>
 {/if}
@@ -94,7 +115,7 @@
 {#if toastError}
 	<div class="toast toast-center toast-top" transition:fade>
 		<div class="alert alert-error">
-			<span>Error sending message</span>
+			<span>{toastMessage}</span>
 		</div>
 	</div>
 {/if}
