@@ -71,22 +71,32 @@
 			on:touchmove={handleTouchMove}
 			on:touchend={handleTouchEnd}
 		>
-			<div id="indicator">
+			<div id="indicator" class="flex items-center justify-center gap-4">
 				{#each reels as { name }, i}
 					<button
 						type="button"
-						class={i === activeIndex ? 'active' : ''}
+						class={`m-0 h-4 w-12 cursor-pointer bg-gray-300 p-0 ${
+							i === activeIndex ? 'active' : ''
+						}`}
 						on:click={() => (activeIndex = i)}
+						aria-label={`Reel ${i + 1}`}
 					></button>
 				{/each}
 			</div>
 			<div id="carousel-inner">
 				{#each reels as { name, src, poster }, i}
-					<div id="single-item">
+					<div id="single-item" class=" flex h-5/6 items-center justify-center">
 						<!-- svelte-ignore a11y-media-has-caption -->
-						<video controls loop {src} {poster}></video>
-						<div id="carousel-caption">
-							<span>
+						<video
+							class="h-auto max-h-full w-auto max-w-full"
+							controls
+							loop
+							playsinline
+							{src}
+							{poster}
+						></video>
+						<div id="carousel-caption" class="bottom-24">
+							<span class="text-2xl text-gray-400">
 								{name}
 							</span>
 						</div>
