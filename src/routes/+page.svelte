@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -9,11 +10,27 @@
 	import Skills from '$lib/components/Home/Skills.svelte';
 	import Contact from '$lib/components/Home/Contact.svelte';
 
-    //TODO: Fix mainvideo mobile
+	let isMobile = false;
+
+	onMount(() => {
+		isMobile = window.innerWidth < 768;
+
+		const handleResize = () => {
+			isMobile = window.innerWidth < 768;
+		};
+
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	});
 </script>
 
 <div>
-	<MainVideo />
+	{#if !isMobile}
+		<MainVideo />
+	{/if}
 	<About />
 	<Portfolio {data} />
 	<Skills />
