@@ -19,9 +19,22 @@
 			>P.S. It goes straight to email box, and I read it every day!</span
 		>
 		<form action="" class="mb-8 flex flex-col">
-			<input class="input input-bordered my-4 w-full max-w-md" type="text" placeholder="Name" />
-			<input class="input input-bordered my-4 w-full max-w-md" type="text" placeholder="E-mail" />
-			<textarea class="textarea textarea-bordered my-4 w-full max-w-md" placeholder="Message"
+			<input
+				class="input input-bordered my-4 w-full max-w-md"
+				type="text"
+				placeholder="Name"
+				required
+			/>
+			<input
+				class="input input-bordered my-4 w-full max-w-md"
+				type="text"
+				placeholder="E-mail"
+				required
+			/>
+			<textarea
+				class="textarea textarea-bordered my-4 w-full max-w-md"
+				placeholder="Message"
+				required
 			></textarea>
 			<button class="btn btn-outline my-4 w-48" type="submit"> Submit </button>
 		</form>
