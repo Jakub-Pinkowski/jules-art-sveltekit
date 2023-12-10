@@ -1,1 +1,0 @@
-Jules-Art made with SvelteKit
