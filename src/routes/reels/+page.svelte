@@ -6,15 +6,67 @@
 	const { reels } = data;
 
 	let activeIndex: number = 0;
+	let xDown: number | null = null;
+	let yDown: number | null = null;
 
 	const setActiveIndex = (index: number) => {
 		activeIndex = index;
+	};
+
+	// Swiping functionality
+	const getTouches = (evt: TouchEvent) => {
+		return evt.touches;
+	};
+
+	const handleTouchStart = (evt: TouchEvent) => {
+		const firstTouch = getTouches(evt)[0];
+		xDown = firstTouch.clientX;
+		yDown = firstTouch.clientY;
+	};
+
+	const handleTouchMove = (evt: TouchEvent) => {
+		if (!xDown || !yDown) {
+			return;
+		}
+
+		const xUp = evt.touches[0].clientX;
+		const yUp = evt.touches[0].clientY;
+
+		const xDiff = xDown - xUp;
+		const yDiff = yDown - yUp;
+
+		if (Math.abs(xDiff) > Math.abs(yDiff)) {
+			if (xDiff > 0) {
+				if (activeIndex < reels.length - 1) {
+					setActiveIndex(activeIndex + 1);
+				}
+			} else {
+				if (activeIndex > 0) {
+					setActiveIndex(activeIndex - 1);
+				}
+			}
+		}
+
+		xDown = null;
+		yDown = null;
+	};
+
+	const handleTouchEnd = (event: TouchEvent) => {
+		if (!xDown || !yDown) {
+			return;
+		}
+		handleTouchMove(event);
 	};
 </script>
 
 <div class="p-4">
 	<h2 class="my-8 pl-4 text-3xl font-medium md:my-4">Reels</h2>
-	<div class="carousel carousel-center w-full rounded-box">
+	<div
+		on:touchstart={handleTouchStart}
+		on:touchmove={handleTouchMove}
+		on:touchend={handleTouchEnd}
+		class="carousel carousel-center w-full rounded-box"
+	>
 		{#each reels as { name, src, poster }, i (name)}
 			<div id={name} class="carousel-item relative w-full">
 				<!-- svelte-ignore a11y-media-has-caption -->
@@ -27,7 +79,7 @@
 			</div>
 		{/each}
 	</div>
-	<div role="tablist" class=" tabs tabs-bordered relative bottom-36 w-full items-center">
+	<div role="tablist" class="tabs tabs-bordered relative bottom-36 w-full items-center">
 		{#each reels as { name }, i (name)}
 			<!-- svelte-ignore a11y-missing-content -->
 			<a
