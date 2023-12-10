@@ -3,6 +3,7 @@
 	import insta_icon from '$lib/assets/icons/insta_icon.png';
 	import tiktok_icon from '$lib/assets/icons/tiktok_icon.png';
 	import youtube_icon from '$lib/assets/icons/youtube_icon.png';
+	import ContactForm from '../ContactForm.svelte';
 
 	const insta_link = 'https://www.instagram.com/jules_matias/?hl=en';
 	const tiktok_link = 'https://www.tiktok.com/@jules_matias?_t=8g9XXu8AGnI&_r=1';
@@ -18,26 +19,7 @@
 		<span class="text-md my-4 font-light"
 			>P.S. It goes straight to email box, and I read it every day!</span
 		>
-		<form action="" class="mb-8 flex flex-col">
-			<input
-				class="input input-bordered my-4 w-full max-w-md"
-				type="text"
-				placeholder="Name"
-				required
-			/>
-			<input
-				class="input input-bordered my-4 w-full max-w-md"
-				type="text"
-				placeholder="E-mail"
-				required
-			/>
-			<textarea
-				class="textarea textarea-bordered my-4 w-full max-w-md"
-				placeholder="Message"
-				required
-			></textarea>
-			<button class="btn btn-outline my-4 w-48" type="submit"> Submit </button>
-		</form>
+		<ContactForm />
 		<span class="my-4 text-lg font-light">Let's connect on Social Media!</span>
 		<div class="flex">
 			<a href={insta_link}>
