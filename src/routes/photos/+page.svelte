@@ -23,12 +23,12 @@
 	};
 </script>
 
-<div class="mt-8">
-	<!-- Gallery -->
-
-	<div class="my-8 h-auto w-full columns-3 gap-4">
+<!-- Gallery -->
+<div class="p-4">
+	<h2 class=" my-8 pl-4 text-3xl font-medium md:my-4">Photos</h2>
+	<div class=" flex h-auto w-full columns-3 flex-col md:block">
 		{#each data.photos as { name, src }}
-			<div class="m-4">
+			<div class="p-4">
 				<div
 					class="w-full cursor-pointer overflow-hidden transition-transform duration-500 ease-out hover:opacity-90"
 				>
