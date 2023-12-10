@@ -22,8 +22,8 @@
 </script>
 
 <div class="max-md:hidden">
-	<nav class="absolute z-10 right-8 top-8 text-white">
-		<div class="absolute right-0 tp-0">
+	<nav class="absolute right-8 top-8 z-10 text-white">
+		<div class="tp-0 absolute right-0">
 			<Hamburger bind:open --color="white" />
 		</div>
 		<MobileNavbar bind:open />
@@ -31,16 +31,16 @@
 	<div>
 		<!-- svelte-ignore a11y-media-has-caption -->
 		<video
-			class="absolute inset-0 w-full h-full object-cover"
+			class="absolute inset-0 h-full w-full object-cover"
 			autoplay
 			loop
 			muted
 			src={promo}
 			bind:this={videoElement}
 		></video>
-		<span class="absolute bottom-0 left-0 text-white font-semibold text-s m-2">SCROLL DOWN</span>
+		<span class="text-s absolute bottom-0 left-0 m-2 font-semibold text-white">SCROLL DOWN</span>
 		<label
-			class={`swap text-white absolute bottom-0 right-0 m-2 ${isBouncing ? 'animate-bounce' : ''}`}
+			class={`swap absolute bottom-0 right-0 m-2 text-white ${isBouncing ? 'animate-bounce' : ''}`}
 		>
 			<!-- this hidden checkbox controls the state -->
 			<input type="checkbox" on:change={toggleMute} />
