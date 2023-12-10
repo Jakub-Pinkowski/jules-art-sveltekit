@@ -6,22 +6,24 @@
 	<h2 class="my-8 text-3xl">Portfolio Highlights</h2>
 	<div class="flex flex-col items-center text-center md:flex-row">
 		{#each data.portfolio as { title, description, photo, src }}
-			<a href={src}>
-				<div class="w-full md:mx-4 md:w-1/3">
-					<h3 class="mb-2 mt-8 text-2xl font-light">
-						{title}
-					</h3>
-					<span class="text-md my-4 font-light">
-						{description}
-					</span>
+			<div class="w-full md:mx-4 md:w-1/3">
+				<!-- TODO: Add animation when scrolling -->
 
+				<h3 class="mb-2 mt-8 text-2xl font-light">
+					{title}
+				</h3>
+
+				<span class="text-md my-4 font-light">
+					{description}
+				</span>
+				<a href={src}>
 					<img
 						class="my-4 h-full w-full rounded-lg object-cover shadow-2xl transition-transform duration-300 ease-in-out md:hover:scale-105 md:hover:opacity-90"
 						src={photo}
 						alt=""
 					/>
-				</div>
-			</a>
+				</a>
+			</div>
 		{/each}
 	</div>
 </div>
