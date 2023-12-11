@@ -5,7 +5,7 @@
 </script>
 
 <div class="hidden h-screen md:block">
-	<div class="carousel carousel-center h-4/5 space-x-4 rounded-box bg-neutral p-4">
+	<div class="carousel carousel-center h-4/5 space-x-4 rounded-box bg-red-500 p-4 dark:bg-neutral">
 		{#each reels as { name, src, poster }, i (name)}
 			<div id={src} class="carousel-item relative px-8 pt-4">
 				<!-- svelte-ignore a11y-media-has-caption -->
@@ -15,10 +15,20 @@
 				>
 					{name}
 				</span>
-			</div>
-			<div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-				<a href="#" class="btn btn-circle">❮</a>
-				<a href="#" class="btn btn-circle">❯</a>
+				<div
+					class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between"
+				>
+					<a
+						href={`#${i === 0 ? src : reels[i - 1].src}`}
+						class:btn-disabled={i === 0}
+						class="btn btn-circle">❮</a
+					>
+					<a
+						href={`#${i === reels.length - 1 ? src : reels[i + 1].src}`}
+						class:btn-disabled={i === reels.length - 1}
+						class="btn btn-circle">❯</a
+					>
+				</div>
 			</div>
 		{/each}
 	</div>
