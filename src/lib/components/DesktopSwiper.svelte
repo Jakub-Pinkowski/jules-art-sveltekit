@@ -15,24 +15,24 @@
 				>
 					{name}
 				</span>
-				<div
-					class="absolute left-5 right-0 top-1/2 flex -translate-y-1/2 transform justify-between"
-				>
-					<a
-						href={`#${i >= 3 ? reels[i - 3].src : reels[Math.max(0, i - 2)].src}`}
-						class:btn-disabled={i < 1}
-						class="btn btn-circle">❮</a
-					>
-					<a
-						href={`#${
-							i <= reels.length - 4
-								? reels[i + 3].src
-								: reels[Math.min(reels.length - 1, i + 2)].src
-						}`}
-						class:btn-disabled={i >= reels.length - 1}
-						class="btn btn-circle">❯</a
-					>
-				</div>
+				{#if i === 2}
+					<div class="absolute right-5 top-1/2 -translate-y-1/2 transform">
+						<a
+							href={`#${i <= reels.length - 4 ? reels[i + 3].src : reels[i - 1].src}`}
+							class:btn-disabled={i >= reels.length - 3}
+							class="btn btn-circle">❯</a
+						>
+					</div>
+				{/if}
+				{#if i === 3}
+					<div class="absolute left-5 top-1/2 -translate-y-1/2 transform">
+						<a
+							href={`#${i >= 3 ? reels[i - 3].src : reels[i + 1].src}`}
+							class:btn-disabled={i < 1}
+							class="btn btn-circle">❮</a
+						>
+					</div>
+				{/if}
 			</div>
 		{/each}
 	</div>
