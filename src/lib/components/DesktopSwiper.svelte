@@ -4,8 +4,9 @@
 	const { reels } = data;
 </script>
 
+<!-- TODO: Create infinite carousel -->
 <div class="hidden h-screen md:block">
-	<div class="carousel carousel-center h-4/5 space-x-4 rounded-box bg-red-500 p-4 dark:bg-neutral">
+	<div class="carousel carousel-center h-4/5 space-x-4 rounded-box bg-neutral p-4">
 		{#each reels as { name, src, poster }, i (name)}
 			<div id={src} class="carousel-item relative px-8 pt-4">
 				<!-- svelte-ignore a11y-media-has-caption -->
