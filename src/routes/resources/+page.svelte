@@ -18,7 +18,7 @@
 	<h2 class=" my-8 pl-4 text-3xl font-medium md:my-4">Resources</h2>
 	<div class="mt-8 flex flex-col md:flex-row">
 		{#each data.resources as { name, description, src, poster }}
-			<div class="card card-compact m-4 bg-base-100 shadow-xl">
+			<div class="card card-compact m-4 bg-base-100 shadow-xl md:w-96">
 				<figure>
 					<img class="h-48 w-full rounded-lg object-cover" src={poster} alt={name} />
 				</figure>
