@@ -22,7 +22,7 @@
 		<ContactForm />
 		<span class="my-4 text-lg font-light">Let's connect on Social Media!</span>
 		<div class="flex">
-			<a href={insta_link}>
+			<a href={insta_link} target="_blank">
 				<img
 					class="my-4 mr-4 h-12 w-12 transform
                             transition-transform duration-300 ease-in-out hover:scale-110"
@@ -30,7 +30,7 @@
 					alt="instagram icon"
 				/>
 			</a>
-			<a href={tiktok_link}>
+			<a href={tiktok_link} target="_blank">
 				<img
 					class="my-4 mr-4 h-12 w-12
                             transform transition-transform duration-300 ease-in-out hover:scale-110"
@@ -38,7 +38,7 @@
 					alt="tiktok icon"
 				/>
 			</a>
-			<a href={youtube_link}>
+			<a href={youtube_link} target="_blank">
 				<img
 					class="my-4 mr-4 h-12 w-12
                         transform transition-transform duration-300 ease-in-out hover:scale-110"
