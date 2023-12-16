@@ -10,16 +10,26 @@
 
 	<div class="flex w-full flex-col items-center">
 		{#each data.movies as { name, src }}
-			<iframe
-				class="mb-4 rounded-lg"
-				width="1245"
-				height="700"
-				{src}
-				title="YouTube video player"
-				frameborder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-				allowfullscreen
-			></iframe>
+			<div class="relative mb-4 h-auto w-full rounded-lg pb-[56.25%] md:hidden">
+				<iframe
+					class="absolute left-0 top-0 h-full w-full"
+					{src}
+					title={name}
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen
+				></iframe>
+			</div>
+			<div class="relative mb-4 hidden w-4/5 rounded-lg pb-[45%] md:block">
+				<iframe
+					class="absolute left-0 top-0 h-full w-full"
+					{src}
+					title={name}
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen
+				></iframe>
+			</div>
 			<h3 class="mb-12 text-2xl font-medium">{name}</h3>
 		{/each}
 	</div>
