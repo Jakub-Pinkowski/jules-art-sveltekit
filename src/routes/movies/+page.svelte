@@ -2,6 +2,7 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
+    
 </script>
 
 <!-- TODO: Fix different margin/padding between this and photos -->
