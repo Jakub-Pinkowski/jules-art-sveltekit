@@ -1,46 +1,47 @@
 import type { PageLoad } from './$types';
 import axios from 'axios';
 
+const API_KEY_ID = '00556b02a70d6a70000000001';
 const API_KEY = 'K005kMidECFkhYixeAAoeLigvFeJi2s';
 const BUCKET_NAME = 'jules-art';
 const FILE_NAME = 'reel_6.mov';
 
 async function getReelFromBackblaze() {
-	try {
-		// First, authenticate with the Backblaze B2 API to get an authorization token
-		const authResponse = await axios.get(
-			'https://api.backblazeb2.com/b2api/v2/b2_authorize_account',
-			{
-				headers: {
-					Authorization: `Basic ${btoa(API_KEY + ':')}`
-				}
-			}
-		);
+    try {
+        // First, authenticate with the Backblaze B2 API to get an authorization token
+        const authResponse = await axios.get(
+            'https://api.backblazeb2.com/b2api/v2/b2_authorize_account',
+            {
+                headers: {
+                    Authorization: `Basic ${Buffer.from(`${API_KEY_ID}:${API_KEY}`).toString('base64')}`
+                }
+            }
+        );
 
-		console.log('authResponse', authResponse);
+        console.log('authResponse', authResponse);
 
-		const authToken = authResponse.data.authorizationToken;
-		const apiUrl = authResponse.data.apiUrl;
+        const authToken = authResponse.data.authorizationToken;
+        const apiUrl = authResponse.data.apiUrl;
 
-		// Then, use the authorization token to download the file
-		const fileResponse = await axios.get(
-			`${apiUrl}/b2api/v2/b2_download_file_by_name?bucketName=${BUCKET_NAME}&fileName=${FILE_NAME}`,
-			{
-				headers: {
-					Authorization: authToken
-				},
-				responseType: 'blob' // Important for video files
-			}
-		);
+        // Then, use the authorization token to download the file
+        const fileResponse = await axios.get(
+            `${apiUrl}/b2api/v2/b2_download_file_by_name?bucketName=${BUCKET_NAME}&fileName=${FILE_NAME}`,
+            {
+                headers: {
+                    Authorization: authToken
+                },
+                responseType: 'blob' // Important for video files
+            }
+        );
 
-		const blob = new Blob([fileResponse.data], { type: 'video/mov' });
-		const url = URL.createObjectURL(blob);
+        const blob = new Blob([fileResponse.data], { type: 'video/mov' });
+        const url = URL.createObjectURL(blob);
 
-		return url;
-	} catch (error) {
-		console.error('Error downloading file from Backblaze B2:', error);
-		return null;
-	}
+        return url;
+    } catch (error) {
+        console.error('Error downloading file from Backblaze B2:', error);
+        return null;
+    }
 }
 
 // import reel_1 from '$lib/assets/reels/reel_1.mov';
