@@ -23,20 +23,20 @@
 	};
 </script>
 
-<!-- Gallery -->
-<div class="p-4">
-	<h2 class=" my-8 pl-4 text-3xl font-medium md:my-4">Photos</h2>
-	<div class=" flex h-auto w-full columns-3 flex-col md:block">
+<div class="mt-8">
+	<!-- Gallery -->
+
+	<div class="columns-3 gap-4 my-8 w-full h-auto">
 		{#each data.photos as { name, src }}
-			<div class="p-4">
+			<div class="m-4">
 				<div
-					class="w-full cursor-pointer overflow-hidden transition-transform duration-500 ease-out hover:opacity-90"
+					class="w-full overflow-hidden cursor-pointer transition-transform hover:opacity-90 ease-out duration-500"
 				>
 					<!-- svelte-ignore missing-declaration -->
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 					<img
-						class="h-full w-full rounded-lg object-cover shadow-2xl"
+						class="object-cover w-full h-full shadow-2xl rounded-lg"
 						{src}
 						alt="artictic"
 						on:click={() => openModal(src)}
@@ -52,7 +52,7 @@
 		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 		<dialog
 			transition:fade
-			class="mx-auto flex max-w-5xl items-center justify-center rounded-lg outline-none"
+			class="max-w-5xl mx-auto flex items-center justify-center outline-none rounded-lg"
 			bind:this={dialog}
 			on:close={() => closeModal()}
 			on:click|self={() => closeModal()}
@@ -61,7 +61,7 @@
 			<!-- svelte-ignore a11y-click-events-have-key-events -->
 			<div on:click={() => closeModal()}>
 				<div class="w-auto max-w-4xl overflow-hidden">
-					<img class="max-h-[50rem] object-contain" src={selectedPhotoSrc} alt="Selected" />
+					<img class="object-contain max-h-[50rem]" src={selectedPhotoSrc} alt="Selected" />
 				</div>
 			</div>
 		</dialog>

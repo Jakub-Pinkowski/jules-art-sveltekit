@@ -2,13 +2,7 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-		extend: {
-			colors: {
-				primary: '#c8b6ff',
-				secondary: '#bbd0ff',
-				dark: '#3c096c'
-			},
-		}
+		extend: {}
 	},
 	plugins: [require('daisyui')],
 	daisyui: {
@@ -17,14 +11,12 @@ export default {
 				light: {
 					...require('daisyui/src/theming/themes')['light'],
 					primary: '#c8b6ff',
-					secondary: '#bbd0ff',
-					dark: '#3c096c'
+					secondary: '#bbd0ff'
 				},
 				dark: {
 					...require('daisyui/src/theming/themes')['dark'],
 					primary: '#c8b6ff',
-					secondary: '#bbd0ff',
-					dark: '#3c096c'
+					secondary: '#bbd0ff'
 				}
 			}
 		]

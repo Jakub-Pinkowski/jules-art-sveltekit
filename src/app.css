@@ -1,8 +1,3 @@
 @tailwind base;
 @tailwind components;
-
-p, span {
-	letter-spacing: 0.025em;
-}
-
 @tailwind utilities;
