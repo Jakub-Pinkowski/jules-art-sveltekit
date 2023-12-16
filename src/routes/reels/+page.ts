@@ -6,42 +6,48 @@ const API_KEY = 'K005kMidECFkhYixeAAoeLigvFeJi2s';
 const BUCKET_NAME = 'jules-art';
 const FILE_NAME = 'reel_6.mov';
 
+console.log('API_KEY_ID', API_KEY_ID);
+
 async function getReelFromBackblaze() {
-    try {
-        // First, authenticate with the Backblaze B2 API to get an authorization token
-        const authResponse = await axios.get(
-            'https://api.backblazeb2.com/b2api/v2/b2_authorize_account',
-            {
-                headers: {
-                    Authorization: `Basic ${Buffer.from(`${API_KEY_ID}:${API_KEY}`).toString('base64')}`
-                }
-            }
-        );
+	try {
+		// First, authenticate with the Backblaze B2 API to get an authorization token
+		console.log('this part works');
 
-        console.log('authResponse', authResponse);
+		const authResponse = await axios.get(
+			'https://api.backblazeb2.com/b2api/v2/b2_authorize_account',
+			{
+				headers: {
+					Authorization: `Basic ${btoa(`${API_KEY_ID}:${API_KEY}`)}`
+				}
+			}
+		);
 
-        const authToken = authResponse.data.authorizationToken;
-        const apiUrl = authResponse.data.apiUrl;
+		console.log('this part does not work');
 
-        // Then, use the authorization token to download the file
-        const fileResponse = await axios.get(
-            `${apiUrl}/b2api/v2/b2_download_file_by_name?bucketName=${BUCKET_NAME}&fileName=${FILE_NAME}`,
-            {
-                headers: {
-                    Authorization: authToken
-                },
-                responseType: 'blob' // Important for video files
-            }
-        );
+		console.log('authResponse', authResponse);
 
-        const blob = new Blob([fileResponse.data], { type: 'video/mov' });
-        const url = URL.createObjectURL(blob);
+		const authToken = authResponse.data.authorizationToken;
+		const apiUrl = authResponse.data.apiUrl;
 
-        return url;
-    } catch (error) {
-        console.error('Error downloading file from Backblaze B2:', error);
-        return null;
-    }
+		// Then, use the authorization token to download the file
+		const fileResponse = await axios.get(
+			`${apiUrl}/b2api/v2/b2_download_file_by_name?bucketName=${BUCKET_NAME}&fileName=${FILE_NAME}`,
+			{
+				headers: {
+					Authorization: authToken
+				},
+				responseType: 'blob' // Important for video files
+			}
+		);
+
+		const blob = new Blob([fileResponse.data], { type: 'video/mov' });
+		const url = URL.createObjectURL(blob);
+
+		return url;
+	} catch (error) {
+		console.error('Error downloading file from Backblaze B2:', error);
+		return null;
+	}
 }
 
 // import reel_1 from '$lib/assets/reels/reel_1.mov';
