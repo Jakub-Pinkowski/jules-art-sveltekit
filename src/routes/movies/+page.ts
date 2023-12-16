@@ -1,10 +1,10 @@
 import type { PageLoad } from './$types';
 
-import berlin_romance_1 from '$lib/assets/movies/Berlin_Romance_1.mov';
-import berlin_romance_2 from '$lib/assets/movies/Berlin_Romance_2.mov';
+// import berlin_romance_1 from '$lib/assets/movies/Berlin_Romance_1.mov';
+// import berlin_romance_2 from '$lib/assets/movies/Berlin_Romance_2.mov';
 
-import berlin_romance_1_poster from '$lib/assets/movies/Berlin_Romance_1.jpg';
-import berlin_romance_2_poster from '$lib/assets/movies/Berlin_Romance_2.jpg';
+// import berlin_romance_1_poster from '$lib/assets/movies/Berlin_Romance_1.jpg';
+// import berlin_romance_2_poster from '$lib/assets/movies/Berlin_Romance_2.jpg';
 
 interface movieObject {
 	id: number;
@@ -33,14 +33,14 @@ export const load = (async () => {
 			{
 				id: 1,
 				name: 'Berlin Romance 1',
-				src: berlin_romance_1,
-				poster: berlin_romance_1_poster
+				// src: berlin_romance_1,
+				// poster: berlin_romance_1_poster
 			},
 			{
 				id: 2,
 				name: 'Berlin Romance 2',
-				src: berlin_romance_2,
-				poster: berlin_romance_2_poster
+				// src: berlin_romance_2,
+				// poster: berlin_romance_2_poster
 			}
 		] as movieObject[]
 	};
