@@ -4,7 +4,7 @@
 
 <nav class="navbar bg-base-100 max-md:hidden">
 	<div class="flex-1">
-		<a class="btn btn-ghost text-2xl pl-12" href="/">Jules-Art</a>
+		<a class="btn btn-ghost text-2xl ml-8" href="/">Jules-Art</a>
 	</div>
 	<ThemeToggler />
 	<div class="flex-none">
