@@ -31,13 +31,45 @@ const authResult = await authorizeBackblazeAccount();
 const authToken = authResult?.authToken;
 const apiUrl = authResult?.apiUrl;
 
+async function downloadReel() {
+	const reel = 'reel_5.mov';
+
+	try {
+		const downloadResponse = await axios.get(`${apiUrl}/file/jules-art/${reel}`, {
+			headers: {
+				Authorization: authToken
+			},
+            responseType: 'arraybuffer'
+		});
+
+		// Convert ArrayBuffer to base64 string
+        const base64String = btoa(
+            new Uint8Array(downloadResponse.data).reduce(
+                (data, byte) => data + String.fromCharCode(byte),
+                ''
+            )
+        );
+
+        return `data:video/mp4;base64,${base64String}`;
+	} catch (error) {
+		console.error('Error downloading reels:', error);
+	}
+}
+
 interface reelObject {
 	name: string;
 	src: string;
 }
 
 export const load = (async () => {
+	const reel = await downloadReel();
+
 	return {
-		reels: [] as reelObject[]
+		reels: [
+			{
+				name: 'reel_5.mov',
+				src: reel
+			}
+		] as reelObject[]
 	};
 }) satisfies PageServerLoad;
