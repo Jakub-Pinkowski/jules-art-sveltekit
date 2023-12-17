@@ -1,12 +1,11 @@
 import type { PageLoad } from './$types';
 import axios from 'axios';
 
-const API_KEY_ID = '00556b02a70d6a70000000001';
-const API_KEY = 'K005kMidECFkhYixeAAoeLigvFeJi2s';
+const API_KEY_ID = import.meta.env.VITE_BACKBLAZE_API_KEY_ID;
+const API_KEY = import.meta.env.VITE_BACKBLAZE_API_KEY;
+
 const BUCKET_NAME = 'jules-art';
 const FILE_NAME = 'reel_6.mov';
-
-console.log('API_KEY_ID', API_KEY_ID);
 
 async function getReelFromBackblaze() {
 	try {
