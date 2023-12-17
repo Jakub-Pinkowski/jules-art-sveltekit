@@ -27,6 +27,15 @@ interface reelObject {
 	poster: string;
 }
 
+const reelNames: string[] = [
+	'One evening in Paris',
+	'Sunlight',
+	'Your scent',
+	'Mon Paris',
+	'Time for the sun',
+	'Sunny days'
+];
+
 export const load = (async () => {
 	const listObjectsCommand = new ListObjectsV2Command(params);
 
