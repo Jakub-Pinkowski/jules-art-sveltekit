@@ -5,7 +5,7 @@ const API_KEY_ID = import.meta.env.VITE_BACKBLAZE_API_KEY_ID;
 const API_KEY = import.meta.env.VITE_BACKBLAZE_API_KEY;
 
 async function authorizeBackblazeAccount() {
-    try {
+	try {
 		const authResponse = await axios.get(
 			'https://api.backblazeb2.com/b2api/v3/b2_authorize_account',
 			{
@@ -28,8 +28,16 @@ async function authorizeBackblazeAccount() {
 }
 
 const authResult = await authorizeBackblazeAccount();
-console.log('authResult', authResult);
+const authToken = authResult?.authToken;
+const apiUrl = authResult?.apiUrl;
+
+interface reelObject {
+	name: string;
+	src: string;
+}
 
 export const load = (async () => {
-    return {};
+	return {
+		reels: [] as reelObject[]
+	};
 }) satisfies PageServerLoad;
