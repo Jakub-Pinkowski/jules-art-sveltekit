@@ -40,6 +40,7 @@ const reelsNames: string[] = [
 	'reel_6.mov'
 ];
 
+// FIXME: the whole function is a mess
 async function downloadReels(reelsNames: string[]) {
 	try {
 		const downloadPromises = reelsNames.map(async (reel) => {
