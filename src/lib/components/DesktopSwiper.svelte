@@ -16,25 +16,13 @@
 				>
 					{title}
 				</span>
-				<!-- {#if i === 2}
-					<div class="absolute right-5 top-1/2 -translate-y-1/2 transform">
-						<a
-							href={`#${i <= reels.length - 4 ? reels[i + 3].src : reels[i - 1].src}`}
-							class:btn-disabled={i >= reels.length - 3}
-							class="btn btn-circle">❯</a
-						>
-					</div>
-				{/if}
-				{#if i === 3}
-					<div class="absolute left-5 top-1/2 -translate-y-1/2 transform">
-						<a
-							href={`#${i >= 3 ? reels[i - 3].src : reels[i + 1].src}`}
-							class:btn-disabled={i < 1}
-							class="btn btn-circle">❮</a
-						>
-					</div>
-				{/if} -->
 			</div>
+		{/each}
+	</div>
+	<div class="mt-4 flex w-full justify-center gap-4 p-4">
+		{#each reels as { title, src }, i (title)}
+			<!-- svelte-ignore a11y-missing-content -->
+			<a href={`#${src}`} class="btn btn-primary px-8">{i + 1}</a>
 		{/each}
 	</div>
 </div>
