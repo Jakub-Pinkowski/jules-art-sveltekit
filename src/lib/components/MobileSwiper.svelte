@@ -70,10 +70,10 @@
 	on:touchstart={handleTouchStart}
 	on:touchmove={handleTouchMove}
 	on:touchend={handleTouchEnd}
-	class="carousel carousel-center w-full rounded-box md:hidden"
+	class="carousel carousel-center w-full space-x-4 rounded-box md:hidden"
 >
 	{#each reels as { title, src, poster }, i (title)}
-		<div id={title} class="carousel-item relative w-11/12">
+		<div id={title} class="carousel-item relative w-10/12">
 			<!-- svelte-ignore a11y-media-has-caption -->
 			<video {src} {poster} controls></video>
 			<span
