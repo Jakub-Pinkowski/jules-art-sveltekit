@@ -51,30 +51,29 @@ export const load = (async () => {
 
 	const videoObjects = objects.filter((object) => object.Key?.endsWith('.mov'));
 
-	const reels: reelObject[] = await Promise.all(
-		videoObjects.map(async (object, index) => {
-			const srcKey = object.Key;
-			const posterKey = srcKey?.replace('.mov', '.jpg');
+	const reels: Pick<reelObject, 'title' | 'src' | 'poster'>[] = await Promise.all(
+		videoObjects.map(
+			async (object, index): Promise<Pick<reelObject, 'title' | 'src' | 'poster'>> => {
+				const srcKey = object.Key;
+				const posterKey = srcKey?.replace('.mov', '.jpg');
 
-			if (!srcKey || !posterKey) {
-				throw new Error('Object does not have a key');
+				if (!srcKey || !posterKey) {
+					throw new Error('Object does not have a key');
+				}
+
+				const commandSrc = new GetObjectCommand({ Bucket: params.Bucket, Key: srcKey });
+				const commandPoster = new GetObjectCommand({ Bucket: params.Bucket, Key: posterKey });
+
+				const src = await getSignedUrl(s3Client, commandSrc, { expiresIn: 3600 }); // 1 hour expiration
+				const poster = await getSignedUrl(s3Client, commandPoster, { expiresIn: 3600 }); // 1 hour expiration
+
+				return {
+					title: reelTitles[index],
+					src,
+					poster
+				};
 			}
-
-			const commandSrc = new GetObjectCommand({ Bucket: params.Bucket, Key: srcKey });
-			const commandPoster = new GetObjectCommand({ Bucket: params.Bucket, Key: posterKey });
-
-			const src = await getSignedUrl(s3Client, commandSrc, { expiresIn: 3600 }); // 1 hour expiration
-			const poster = await getSignedUrl(s3Client, commandPoster, { expiresIn: 3600 }); // 1 hour expiration
-
-			return {
-				name: srcKey.replace('reels/reel_', '').replace('.mov', ''),
-				title: reelTitles[index],
-				s3SrcKey: srcKey,
-				s3PosterKey: posterKey,
-				src,
-				poster
-			};
-		})
+		)
 	);
 
 	return {
