@@ -16,7 +16,7 @@
 				>
 					{title}
 				</span>
-				{#if i === 2}
+				<!-- {#if i === 2}
 					<div class="absolute right-5 top-1/2 -translate-y-1/2 transform">
 						<a
 							href={`#${i <= reels.length - 4 ? reels[i + 3].src : reels[i - 1].src}`}
@@ -33,7 +33,7 @@
 							class="btn btn-circle">❮</a
 						>
 					</div>
-				{/if}
+				{/if} -->
 			</div>
 		{/each}
 	</div>
