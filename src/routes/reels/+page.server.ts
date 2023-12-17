@@ -1,6 +1,6 @@
 import type { PageServerLoad } from './$types';
-import { Readable } from 'stream';
 import { S3Client, ListObjectsV2Command, GetObjectCommand } from '@aws-sdk/client-s3';
+import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 
 const AWS_ACCESS_KEY = import.meta.env.VITE_AWS_ACCESS_KEY;
 const AWS_SECRET_ACCESS_KEY = import.meta.env.VITE_AWS_SECRET_ACCESS_KEY;
@@ -25,56 +25,57 @@ const s3Client = new S3Client({
 interface reelObject {
 	name: string;
 	title: string;
+	s3SrcKey: string;
+	s3PosterKey: string;
 	src: string;
 	poster: string;
 }
 
-let reels = [
-	{
-		name: 'reel_1',
-		title: 'One evening in Paris',
-		src: '',
-		poster: ''
-	},
-	{
-		name: 'reel_2',
-		title: 'Sunlight',
-		src: '',
-		poster: ''
-	},
-	{
-		name: 'reel_3',
-		title: 'Your scent',
-		src: '',
-		poster: ''
-	},
-	{
-		name: 'reel_4',
-		title: 'Mon Paris',
-		src: '',
-		poster: ''
-	},
-	{
-		name: 'reel_5',
-		title: 'Time for the sun',
-		src: '',
-		poster: ''
-	},
-	{
-		name: 'reel_6',
-		title: 'Sunny days',
-		src: '',
-		poster: ''
-	}
-] as reelObject[];
+const reelTitles = [
+	'One evening in Paris',
+	'Sunlight',
+	'Your scent',
+	'Mon Paris',
+	'Time for the sun',
+	'Sunny days'
+];
 
 export const load = (async () => {
 	const listObjectsCommand = new ListObjectsV2Command(params);
+	const data = await s3Client.send(listObjectsCommand);
+	const objects = data.Contents;
 
-	const { Contents: objects } = await s3Client.send(listObjectsCommand);
-	console.log('objects', objects);
+	if (!objects) {
+		throw new Error('Failed to list objects from S3 bucket');
+	}
 
-    
+	const videoObjects = objects.filter((object) => object.Key?.endsWith('.mov'));
+
+	const reels: reelObject[] = await Promise.all(
+		videoObjects.map(async (object, index) => {
+			const srcKey = object.Key;
+			const posterKey = srcKey?.replace('.mov', '.jpg');
+
+			if (!srcKey || !posterKey) {
+				throw new Error('Object does not have a key');
+			}
+
+			const commandSrc = new GetObjectCommand({ Bucket: params.Bucket, Key: srcKey });
+			const commandPoster = new GetObjectCommand({ Bucket: params.Bucket, Key: posterKey });
+
+			const src = await getSignedUrl(s3Client, commandSrc, { expiresIn: 3600 }); // 1 hour expiration
+			const poster = await getSignedUrl(s3Client, commandPoster, { expiresIn: 3600 }); // 1 hour expiration
+
+			return {
+				name: srcKey.replace('reels/reel_', '').replace('.mov', ''),
+				title: reelTitles[index],
+				s3SrcKey: srcKey,
+				s3PosterKey: posterKey,
+				src,
+				poster
+			};
+		})
+	);
 
 	return {
 		reels
