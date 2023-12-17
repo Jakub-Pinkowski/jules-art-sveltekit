@@ -31,26 +31,40 @@ const authResult = await authorizeBackblazeAccount();
 const authToken = authResult?.authToken;
 const apiUrl = authResult?.apiUrl;
 
-async function downloadReel() {
-	const reel = 'reel_5.mov';
+const reelsNames: string[] = [
+	'reel_1.mov',
+	'reel_2.mov',
+	'reel_3.mov',
+	'reel_4.mov',
+	'reel_5.mov',
+	'reel_6.mov'
+];
 
+async function downloadReels(reelsNames: string[]) {
 	try {
-		const downloadResponse = await axios.get(`${apiUrl}/file/jules-art/${reel}`, {
-			headers: {
-				Authorization: authToken
-			},
-            responseType: 'arraybuffer'
+		const downloadPromises = reelsNames.map(async (reel) => {
+			const downloadResponse = await axios.get(`${apiUrl}/file/jules-art/${reel}`, {
+				headers: {
+					Authorization: authToken
+				},
+				responseType: 'arraybuffer'
+			});
+
+			// Convert ArrayBuffer to base64 string
+			const base64String = btoa(
+				new Uint8Array(downloadResponse.data).reduce(
+					(data, byte) => data + String.fromCharCode(byte),
+					''
+				)
+			);
+
+			return `data:video/mp4;base64,${base64String}`;
 		});
 
-		// Convert ArrayBuffer to base64 string
-        const base64String = btoa(
-            new Uint8Array(downloadResponse.data).reduce(
-                (data, byte) => data + String.fromCharCode(byte),
-                ''
-            )
-        );
+		const base64Reels = await Promise.all(downloadPromises);
+        console.log('base64Reels', base64Reels)
 
-        return `data:video/mp4;base64,${base64String}`;
+		return base64Reels;
 	} catch (error) {
 		console.error('Error downloading reels:', error);
 	}
@@ -62,14 +76,12 @@ interface reelObject {
 }
 
 export const load = (async () => {
-	const reel = await downloadReel();
+    const reels = await downloadReels(reelsNames);
 
 	return {
-		reels: [
-			{
-				name: 'reel_5.mov',
-				src: reel
-			}
-		] as reelObject[]
+        reels: reels?.map((reel, index) => ({
+            name: reelsNames[index],
+            src: reel
+        })) as reelObject[]
 	};
 }) satisfies PageServerLoad;
