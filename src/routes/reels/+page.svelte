@@ -4,9 +4,6 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-	console.log('data from reels +page.svelte', data);
-
-    // extract just title, src ans poster from data
 </script>
 
 <div class="p-4">

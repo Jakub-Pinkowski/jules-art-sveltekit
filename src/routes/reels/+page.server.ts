@@ -5,9 +5,6 @@ import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 const AWS_ACCESS_KEY = import.meta.env.VITE_AWS_ACCESS_KEY;
 const AWS_SECRET_ACCESS_KEY = import.meta.env.VITE_AWS_SECRET_ACCESS_KEY;
 
-console.log('AWS_ACCESS_KEY', AWS_ACCESS_KEY);
-console.log('AWS_SECRET_ACCESS_KEY', AWS_SECRET_ACCESS_KEY);
-
 const region = 'eu-central-1';
 const params = {
 	Bucket: 'jules-art',
