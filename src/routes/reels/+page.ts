@@ -30,7 +30,7 @@ async function getReelFromBackblaze() {
 
 		// Then, use the authorization token to download the file
 		const fileResponse = await axios.get(
-			`${apiUrl}/b2api/v2/b2_download_file_by_name?bucketName=${BUCKET_NAME}&fileName=${FILE_NAME}`,
+			`${apiUrl}/b2api/v2/b2_download_file_by_name?bucketName=${BUCKET_NAME}/${FILE_NAME}`,
 			{
 				headers: {
 					Authorization: authToken
