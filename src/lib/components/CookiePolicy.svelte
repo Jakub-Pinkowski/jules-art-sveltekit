@@ -18,6 +18,11 @@
 		localStorage.setItem('cookieBannerDisplayed', 'true');
 		showBanner = false;
 	};
+
+	const customizeCookies = () => {
+		localStorage.setItem('cookieBannerDisplayed', 'true');
+		showBanner = false;
+	};
 </script>
 
 {#if showBanner}
@@ -30,7 +35,7 @@
 			</p>
 			<a> Cookie Policy </a>
 			<div class="card-actions">
-				<button class="btn btn-ghost">Customize</button>
+				<button class="btn btn-ghost" on:click={customizeCookies}>Customize</button>
 				<button class="btn btn-ghost" on:click={rejectAll}>Reject All</button>
 				<button class="btn btn-primary" on:click={acceptAll}>Accept All</button>
 			</div>
