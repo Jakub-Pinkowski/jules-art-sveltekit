@@ -16,7 +16,7 @@
 	// TODO: Implement this
 	const rejectAll = () => {
 		document.cookie = 'theme=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-        console.log('document.cookie:', document.cookie);
+		console.log('document.cookie:', document.cookie);
 
 		localStorage.setItem('cookieBannerDisplayed', 'true');
 
@@ -29,18 +29,24 @@
 	// };
 </script>
 
-<div class="card w-[25rem] bg-base-100 shadow-xl">
-	<div class="card-body">
-		<h2 class="card-title">Cookies!</h2>
-		<p>
-			We use cookies to anylyze our traffic. By clicking "Accept All" you consent to our use of
-			cookies
-		</p>
-		<a class="text-blue-500" href="/cookies"> Cookie Policy </a>
-		<div class="card-actions">
-			<!-- <button class="btn btn-ghost" on:click={customizeCookies}>Customize</button> -->
-			<button class="btn btn-ghost w-36" on:click={rejectAll}>Reject</button>
-			<button class="btn btn-primary w-36" on:click={acceptAll}>Accept</button>
+{#if showBanner}
+<div class="toast toast-center toast-top z-10 shadow-xl">
+	<div class="card bg-base-100 border-neutral-500">
+		<div class="card-body">
+			<h2 class="card-title">Cookies!</h2>
+			<p>
+				We use cookies to analyze our traffic. By clicking "Accept" you consent to our use of
+				cookies.
+			</p>
+			<a class="text-blue-500" href="/cookies"> Cookie Policy </a>
+			<div class="card-actions ml-auto">
+				<!-- <button class="btn btn-ghost" on:click={customizeCookies}>Customize</button> -->
+				<button class="btn btn-ghost w-36" on:click={rejectAll}>Reject</button>
+				<button class="btn btn-primary w-36" on:click={acceptAll}>Accept</button>
+			</div>
 		</div>
 	</div>
 </div>
+{/if}
+
+
