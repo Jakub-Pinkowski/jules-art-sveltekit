@@ -70,29 +70,17 @@
 	on:touchstart={handleTouchStart}
 	on:touchmove={handleTouchMove}
 	on:touchend={handleTouchEnd}
-	class="carousel w-full rounded-box md:hidden"
+	class="carousel carousel-center w-full space-x-4 rounded-box md:hidden"
 >
-	{#each reels as { name, src, poster }, i (name)}
-		<div id={name} class="carousel-item relative w-full">
+	{#each reels as { title, src, poster }, i (title)}
+		<div id={title} class="carousel-item relative w-10/12">
 			<!-- svelte-ignore a11y-media-has-caption -->
 			<video {src} {poster} controls></video>
 			<span
 				class="absolute bottom-44 left-0 right-0 z-10 text-center text-2xl font-medium text-gray-50"
 			>
-				{name}
+				{title}
 			</span>
 		</div>
-	{/each}
-</div>
-<div role="tablist" class="tabs tabs-bordered relative bottom-36 w-full items-center">
-	{#each reels as { name }, i (name)}
-		<!-- svelte-ignore a11y-missing-content -->
-		<a
-			id={name}
-			on:click={() => setActiveIndex(i)}
-			role="tab"
-			href={`#${name}`}
-			class={`tab m-1 h-1 bg-gray-50 ${i === activeIndex ? 'bg-gray-900' : ''}`}
-		></a>
 	{/each}
 </div>

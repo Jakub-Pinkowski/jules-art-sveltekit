@@ -9,6 +9,7 @@
 
 <label class="swap swap-rotate p-4">
 	<input
+		name="theme"
 		type="checkbox"
 		class="theme-controller"
 		value="synthwave"

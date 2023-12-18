@@ -30,7 +30,9 @@
 		{#each data.photos as { name, src }}
 			<div class="p-4">
 				<div
-					class="w-full cursor-pointer overflow-hidden transition-transform duration-500 ease-out hover:opacity-90"
+					class="w-full cursor-pointer overflow-hidden transition-transform duration-500
+                    ease-out hover:scale-105 hover:opacity-90
+                    "
 				>
 					<!-- svelte-ignore missing-declaration -->
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
