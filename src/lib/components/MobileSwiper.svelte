@@ -72,14 +72,14 @@
 	on:touchend={handleTouchEnd}
 	class="carousel carousel-center w-full space-x-4 rounded-box md:hidden"
 >
-	{#each reels as { title, src, poster }, i (title)}
-		<div id={title} class="carousel-item relative w-10/12">
+	{#each reels as { name, src, poster }, i (name)}
+		<div id={name} class="carousel-item relative w-10/12">
 			<!-- svelte-ignore a11y-media-has-caption -->
 			<video {src} {poster} controls></video>
 			<span
 				class="absolute bottom-44 left-0 right-0 z-10 text-center text-2xl font-medium text-gray-50"
 			>
-				{title}
+				{name}
 			</span>
 		</div>
 	{/each}
