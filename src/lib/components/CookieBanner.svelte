@@ -25,7 +25,6 @@
 	};
 </script>
 
-{#if showBanner}
 	<div class="card w-[25rem] bg-base-100 shadow-xl">
 		<div class="card-body">
 			<h2 class="card-title">Cookies!</h2>
@@ -33,7 +32,9 @@
 				We use cookies to anylyze our traffic. By clicking "Accept All" you consent to our use of
 				cookies
 			</p>
-			<a> Cookie Policy </a>
+			<a 
+                class="text-blue-500"
+            href="/cookies"> Cookie Policy </a>
 			<div class="card-actions">
 				<button class="btn btn-ghost" on:click={customizeCookies}>Customize</button>
 				<button class="btn btn-ghost" on:click={rejectAll}>Reject All</button>
@@ -41,4 +42,4 @@
 			</div>
 		</div>
 	</div>
-{/if}
+
