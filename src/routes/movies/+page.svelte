@@ -1,4 +1,5 @@
 <script lang="ts">
+	import CookiePolicy from '$lib/components/CookiePolicy.svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -6,6 +7,7 @@
 
 <!-- TODO: Fix different margin/padding between this and photos -->
 <div class=" p-4">
+	<CookiePolicy />
 	<h2 class="my-8 pl-4 text-3xl font-medium md:my-4">Movies</h2>
 
 	<div class="flex w-full flex-col items-center">
