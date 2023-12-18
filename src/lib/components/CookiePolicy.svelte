@@ -57,7 +57,7 @@
 		</p>
 
 		<ul>
-			<li>
+			<li class="my-4">
 				<p>
 					This site uses Google Analytics which is one of the most widespread and trusted analytics
 					solution on the web for helping us to understand how you use the site and ways that we can
@@ -69,7 +69,7 @@
 				</p>
 			</li>
 
-			<li>
+			<li class="my-4">
 				<p>
 					Third party analytics are used to track and measure usage of this site so that we can
 					continue to produce engaging content. These cookies may track things such as how long you
@@ -78,13 +78,26 @@
 				</p>
 			</li>
 
-			<li>
+			<li class="my-4">
 				<p>
 					From time to time we test new features and make subtle changes to the way that the site is
 					delivered. When we are still testing new features these cookies may be used to ensure that
 					you receive a consistent experience whilst on the site whilst ensuring we understand which
 					optimisations our users appreciate the most.
 				</p>
+			</li>
+
+			<li class="my-4">
+				<p>
+					We embed videos from our official YouTube channel. This may set cookies on your computer
+					once you click on the YouTube video player. These cookies are set by YouTube to track
+					usage of its services. The YouTube cookies are only installed when you press play. For
+					more information on these cookies and how to manage them, please visit the
+					<a href="https://policies.google.com/technologies/cookies" class="text-blue-500"
+						>official page</a
+					>.
+				</p>
+				<p></p>
 			</li>
 		</ul>
 

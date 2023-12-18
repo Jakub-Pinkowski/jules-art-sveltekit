@@ -23,10 +23,10 @@
 		showBanner = false;
 	};
 
-	const customizeCookies = () => {
-		localStorage.setItem('cookieBannerDisplayed', 'true');
-		showBanner = false;
-	};
+	// const customizeCookies = () => {
+	// 	localStorage.setItem('cookieBannerDisplayed', 'true');
+	// 	showBanner = false;
+	// };
 </script>
 
 <div class="card w-[25rem] bg-base-100 shadow-xl">
@@ -38,9 +38,9 @@
 		</p>
 		<a class="text-blue-500" href="/cookies"> Cookie Policy </a>
 		<div class="card-actions">
-			<button class="btn btn-ghost" on:click={customizeCookies}>Customize</button>
-			<button class="btn btn-ghost" on:click={rejectAll}>Reject All</button>
-			<button class="btn btn-primary" on:click={acceptAll}>Accept All</button>
+			<!-- <button class="btn btn-ghost" on:click={customizeCookies}>Customize</button> -->
+			<button class="btn btn-ghost w-36" on:click={rejectAll}>Reject</button>
+			<button class="btn btn-primary w-36" on:click={acceptAll}>Accept</button>
 		</div>
 	</div>
 </div>
