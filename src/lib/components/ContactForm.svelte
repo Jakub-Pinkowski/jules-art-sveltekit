@@ -78,6 +78,7 @@
 		id="name"
 		placeholder="Name"
 		required
+		autocomplete="name"
 	/>
 	<input
 		bind:value={email}
@@ -87,6 +88,7 @@
 		id="email"
 		placeholder="E-mail"
 		required
+		autocomplete="email"
 	/>
 	<textarea
 		bind:value={message}

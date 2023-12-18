@@ -43,7 +43,7 @@
 			class={`swap absolute bottom-0 right-0 m-2 text-white ${isBouncing ? 'animate-bounce' : ''}`}
 		>
 			<!-- this hidden checkbox controls the state -->
-			<input type="checkbox" on:change={toggleMute} />
+			<input name="mute" type="checkbox" on:change={toggleMute} />
 
 			<!-- volume on icon -->
 			<svg
