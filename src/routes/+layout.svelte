@@ -1,4 +1,6 @@
 <script lang="ts">
+	export const ssr = false;
+
 	import { Hamburger } from 'svelte-hamburgers';
 	import '../app.css';
 	import Footer from '$lib/components/Footer.svelte';
