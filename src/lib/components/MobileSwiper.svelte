@@ -77,7 +77,7 @@
 			<!-- svelte-ignore a11y-media-has-caption -->
 			<video {src} {poster} controls></video>
 			<span
-				class="absolute bottom-44 left-0 right-0 z-10 text-center text-2xl font-medium text-gray-50"
+				class="absolute bottom-12 left-0 right-0 z-10 text-center text-2xl font-medium text-gray-50"
 			>
 				{name}
 			</span>

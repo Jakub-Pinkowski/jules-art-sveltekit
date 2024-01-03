@@ -12,7 +12,7 @@
 				<!-- svelte-ignore a11y-media-has-caption -->
 				<video class="h-full w-full rounded-box object-cover" {src} {poster} controls></video>
 				<span
-					class="absolute bottom-24 left-0 right-0 z-10 p-2 text-center text-2xl font-medium text-white"
+					class="absolute bottom-12 left-0 right-0 z-10 p-2 text-center text-2xl font-medium text-white"
 				>
 					{name}
 				</span>
