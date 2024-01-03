@@ -5,8 +5,9 @@
 </script>
 
 <!-- TODO: Create infinite carousel -->
+<!-- TODO: Add arrows -->
 <div class="hidden h-screen md:block">
-	<div class="carousel carousel-center h-4/5 space-x-4 rounded-box bg-neutral p-4">
+	<div class="carousel carousel-center h-4/5 space-x-4 rounded-box bg-gray-200 p-4">
 		{#each reels as { name, src, poster }, i (name)}
 			<div id={i.toString()} class="carousel-item relative px-8 pt-4 w-1/4">
 				<!-- svelte-ignore a11y-media-has-caption -->
